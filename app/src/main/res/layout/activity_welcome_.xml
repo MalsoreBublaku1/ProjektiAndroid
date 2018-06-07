@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background1"
+    tools:context=".Welcome_Activity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logging in..."
+        android:textSize="20sp"
+        android:id="@+id/logging_in"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/explore"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:drawableRight="@drawable/ic_explore_white_48dp"
+    android:layout_above="@id/explore"
+    android:layout_centerHorizontal="true"
+    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YOU'RE AWESOME !"
+        android:id="@+id/explore"
+android:textColor="#f9fbfc"
+        android:textSize="40dp"
+        android:layout_centerInParent="true"
+        android:gravity="center" />
+
+   <!--- <ProgressBar
+        android:layout_width="match_parent"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:indeterminate="false"
+        android:max="6"
+        android:paddingRight="19dp"
+        android:paddingLeft="19dp"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logging_in"
+        android:id="@+id/progress_bar"/>
+
+   <Button
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@id/progress_bar"
+       android:text="kliko"
+       android:id="@+id/btnKliko"/>-->
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:max="90"
+        android:layout_below="@id/logging_in"
+        android:layout_centerHorizontal="true"
+        android:progressDrawable="@drawable/progressbar_circle"
+
+       />
+</RelativeLayout>

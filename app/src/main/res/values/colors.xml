@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#597db7</color>
+    <color name="colorPrimaryDark">#264c89</color>
+    <color name="colorAccent">#0b6ca0</color>
+    <color name="ngjyra1">#0c0c0c</color>
+    <color name="ngjyra2">#efe22b</color>
+    <color name="ngjyra3">#efedcb</color>
+    <color name="ngjyra4">#e5dada</color>
+    <color name="ngjyra5">#af1d1d</color>
+    <color name="bardhe">#122d35</color>
+    <color name="teksti_hint">#545252</color>
+    <color name="ngjyra6">#b7b3b3</color>
+    <color name="ngjyra7">#4f4c4c</color>
+    <color name="ngjyraHeaderFooter">#fcfcfc</color>
+    <color name="teksti">#3a3838</color>
+</resources>

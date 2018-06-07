@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_exit"
+        android:title="Close"
+        android:icon="@drawable/ic_close_black_24dp"
+        android:iconTint="@color/ngjyra4"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:iconTint="@color/ngjyra4"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/log_in"
+        android:title="Help"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_help_outline_black_24dp"
+        android:iconTint="@color/ngjyra4"
+
+        />
+</menu>

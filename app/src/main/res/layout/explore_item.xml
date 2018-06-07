@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<data>-->
+<!---->
+        <!--<variable-->
+            <!--name="ExploreItem"-->
+            <!--type="com.example.hp.projektiandroid.explore.ExploreModel" />-->
+    <!--</data>-->
+
+    <data>
+        <variable name="ExploreItem" type="com.example.hp.projektiandroid.explore.ExploreModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="12dp"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <ImageView
+            android:id="@+id/album"
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:scaleType="fitXY"
+            android:src="@{ExploreItem.image}" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ExploreItem.name}"
+            android:textColor="#194949"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/album_titulli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ExploreItem.location}"
+            android:textColor="#010f0f"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cmimi :" />
+
+            <TextView
+                android:id="@+id/cmimi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{ExploreItem.cmimi}"
+                android:textStyle="normal" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+
+    <item>
+        <shape>
+            <corners
+                android:bottomRightRadius="30dp"/>
+            <stroke
+                android:width="2dp"
+                android:color="#a59f9f" />
+
+            <!-- Vlerat pozitive japin shadow ne qat ane qe vendosen,vlerat negative jo -->
+
+            <padding
+                android:bottom="2dp"
+                android:left="2dp"
+                android:right="-1dp"
+                android:top="-1dp" />
+
+
+        </shape>
+    </item>
+
+    <!-- Background -->
+
+    <item>
+        <shape>
+            <solid android:color="@color/ngjyraHeaderFooter" />
+            <corners
+                android:bottomRightRadius="30dp" />
+        </shape>
+    </item>
+
+</layer-list>

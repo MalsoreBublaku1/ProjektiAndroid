@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#fff7f7"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHECK YOUR EMAIL!"
+        android:textSize="38dp"
+        android:textStyle="bold"
+        android:textColor="@color/bardhe"/>
+
+
+    <TextView
+        android:paddingTop="40dp"
+        android:textColor="@color/bardhe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="We have sent you an email with a link to reset your password"
+        android:textSize="19dp"/>
+
+</LinearLayout>

@@ -23,7 +23,7 @@ import android.content.DialogInterface;
 
         import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class    MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView TV1;
     private EditText et1;
     private Button btn1;
@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     finish();
-                    Intent intent = new Intent(MainActivity.this, Welcome_Activity.class);
+                    Intent intent = new Intent(MainActivity.this, Kryesore.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }

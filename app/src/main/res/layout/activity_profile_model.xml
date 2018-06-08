@@ -8,6 +8,11 @@
     tools:context="com.example.hp.projektiandroid.profileModel">
 
 
+
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -17,6 +22,18 @@
         android:textSize="22dp"
         android:id="@+id/item"
         />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/shtoShtepi"
+
+        />
+</LinearLayout>
+
+
+
+
 
     <LinearLayout
         android:layout_width="match_parent"

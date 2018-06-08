@@ -32,7 +32,7 @@ ProgressBar pb;*/
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                Intent i=new Intent(Welcome_Activity.this,ProfileActivity.class);
+                Intent i=new Intent(Welcome_Activity.this,Kryesore.class);
                 startActivity(i);
                 finish();
             }

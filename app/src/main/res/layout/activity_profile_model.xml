@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="50dp"
+    tools:context="com.example.hp.projektiandroid.profileModel">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="jdskdjskjdskjdsdkskds"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:textSize="22dp"
+        android:id="@+id/item"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/teksti"></LinearLayout>
+
+</LinearLayout>

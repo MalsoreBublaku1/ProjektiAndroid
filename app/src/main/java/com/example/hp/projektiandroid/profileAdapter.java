@@ -10,11 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.hp.projektiandroid.explore.ChooseActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
-
-import static android.support.v4.content.ContextCompat.startActivity;
 
 /**
  * Created by HP on 6/8/2018.
@@ -76,6 +75,16 @@ public class profileAdapter extends RecyclerView.Adapter<profileAdapter.ViewHold
                     }
                 });
             }
+        if(holder.tv1.getText().equals(" List your space")) {
+                holder.tv1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(c, ChooseActivity.class);
+                        c.startActivity(intent);
+
+                    }
+                });
+        }
     }
 
     @Override

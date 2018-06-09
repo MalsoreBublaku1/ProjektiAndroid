@@ -54,6 +54,8 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
         holder.AlbumTitle.setText(ft.getName());
         holder.Location.setText(ft.getLocation());
         holder.Cmimi.setText(ft.getCmimi());
+
+
     }
 
     @Override

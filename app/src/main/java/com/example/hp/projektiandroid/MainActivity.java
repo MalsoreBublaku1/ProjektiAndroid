@@ -1,10 +1,8 @@
 package com.example.hp.projektiandroid;
 
-import android.content.DialogInterface;
-        import android.content.Intent;
+import android.content.Intent;
         import android.graphics.Color;
-        import android.graphics.drawable.ColorDrawable;
-        import android.support.annotation.NonNull;
+import android.support.annotation.NonNull;
         import android.support.v7.app.AlertDialog;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
@@ -15,13 +13,11 @@ import android.content.DialogInterface;
         import android.widget.TextView;
         import android.widget.Toast;
 
-        import com.example.hp.projektiandroid.explore.FragmentExplore;
-        import com.google.android.gms.tasks.OnCompleteListener;
+import com.example.hp.projektiandroid.explore.ChooseActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
         import com.google.android.gms.tasks.Task;
         import com.google.firebase.auth.AuthResult;
         import com.google.firebase.auth.FirebaseAuth;
-
-        import org.w3c.dom.Text;
 
 public class    MainActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView TV1;

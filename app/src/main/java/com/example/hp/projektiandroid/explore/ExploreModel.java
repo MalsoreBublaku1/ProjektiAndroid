@@ -8,6 +8,10 @@ public class ExploreModel {
     String location;
     String cmimi;
 
+public ExploreModel(){
+
+
+}
     public ExploreModel(String name, int image, String location, String cmimi) {
         this.name = name;
         this.image = image;

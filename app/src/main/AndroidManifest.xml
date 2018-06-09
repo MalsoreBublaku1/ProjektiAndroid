@@ -58,7 +58,7 @@
         </activity>
         <activity android:name=".ProfileActivity" />
         <activity android:name=".profileModel" />
-        <activity android:name=".ChooseActivity"></activity>
+        <activity android:name=".explore.ChooseActivity"></activity>
     </application>
 
 </manifest>

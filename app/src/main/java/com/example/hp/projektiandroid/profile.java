@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class profile extends Fragment {
     TextView txt1;
     private Firebase mRef;
     DatabaseReference databaseReference;
+    ImageView imv;
 
 
 
@@ -43,6 +45,7 @@ public class profile extends Fragment {
 
 
         txt1 = (TextView) view.findViewById(R.id.emriUserAktiv);
+        imv=(ImageView)view.findViewById(R.id.imageView);
         loadUserInformation();
         return view;
 
@@ -80,6 +83,24 @@ public class profile extends Fragment {
 
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

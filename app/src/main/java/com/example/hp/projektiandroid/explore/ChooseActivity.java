@@ -28,7 +28,7 @@ public class ChooseActivity extends AppCompatActivity {
     static Context c;
     DatabaseReference databaseReference;
 
-
+//
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

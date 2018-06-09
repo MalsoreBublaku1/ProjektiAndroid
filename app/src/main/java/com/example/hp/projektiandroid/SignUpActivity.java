@@ -2,6 +2,7 @@ package com.example.hp.projektiandroid;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,8 +24,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView TV1;
@@ -121,6 +126,22 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     finish();
                     startActivity(new Intent(SignUpActivity.this, Welcome_Activity.class));
                     Toast.makeText(getApplicationContext(), "User Registred Succesfully", Toast.LENGTH_SHORT).show();
+                    TextView tv=(TextView)findViewById(R.id.tvFirstName);
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    String displayName="";
+                    displayName=tv.getText().toString();
+
+                    UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
+                            .setDisplayName(displayName).build();
+
+                    //per update te profilit
+                    user.updateProfile(profile).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(getApplicationContext(), "Profile Updated", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
 
 
                 } else {

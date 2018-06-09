@@ -43,13 +43,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Kryesore">
+            <intent-filter>
+                <action android:name="kryesore-filter" />
 
-
-        <intent-filter>
-        <action android:name="kryesore-filter" />
-
-        <category android:name="android.intent.category.DEFAULT" />
-        </intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity android:name=".CalendarActivity">
             <intent-filter>
@@ -59,7 +57,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".profileModel"></activity>
+        <activity android:name=".profileModel" />
+        <activity android:name=".ChooseActivity"></activity>
     </application>
 
 </manifest>

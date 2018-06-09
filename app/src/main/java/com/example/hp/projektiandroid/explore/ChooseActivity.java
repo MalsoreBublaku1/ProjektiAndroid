@@ -20,33 +20,33 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class ChooseActivity extends AppCompatActivity {
-    Spinner spinner, spinner1,spinner2;
-    ArrayAdapter<CharSequence> adapter,adapter1,adapter2;
+    Spinner spinner, spinner1,spinner2,spinner4;
+    ArrayAdapter<CharSequence> adapter,adapter1,adapter2,adapter3,adapter4;
     RadioGroup radioGroup;
     RadioButton radioButton;
     Button btnNext1;
+    static String noOfBeds="";
     static Context c;
     DatabaseReference databaseReference;
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+final Spinner spinner3;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
         //first spinner(drop down list)
         spinner =(Spinner) findViewById(R.id.spinner);
+
+
+
+
         btnNext1=(Button)findViewById(R.id.btnNext);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("TabelaExplore");
-        btnNext1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ExploreModel em=new ExploreModel("MALSORE",0,"kosove","23euro");
-               // addnew(em);
-                //System.out.println("mesazhi shkoj");
-                ShtoTeDhenat(em);
-            }
-        });
+
+
 
 
 
@@ -112,6 +112,77 @@ public class ChooseActivity extends AppCompatActivity {
 
             }
         });
+
+        spinner3=(Spinner)findViewById(R.id.spinner3);
+        adapter3 = ArrayAdapter.createFromResource(this,R.array.noOfBeds,android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(adapter3);
+
+        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                noOfBeds=spinner3.getSelectedItem().toString();
+                Toast.makeText(getBaseContext(),noOfBeds,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        noOfBeds=spinner3.getSelectedItem().toString();
+        System.out.println("numri i shtreterve:"+noOfBeds);
+
+
+        spinner4=(Spinner)findViewById(R.id.spinner4);
+        adapter4 = ArrayAdapter.createFromResource(this,R.array.noOfGuests,android.R.layout.simple_spinner_item);
+        adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner4.setAdapter(adapter4);
+
+        spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String noOfGuests=parent.getItemAtPosition(position).toString();
+                Toast.makeText(getBaseContext(),noOfGuests,Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        System.out.println("No of Beds ne 1 "+noOfBeds);
+        btnNext1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ExploreModel em=new ExploreModel("Malsore",0,"Kosova","20euro",noOfBeds+" beds");
+                // addnew(em);
+                System.out.println("No of beds:"+noOfBeds);
+                //System.out.println("mesazhi shkoj");
+                ShtoTeDhenat(em);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
     public void checkedButton(View v){
         radioGroup = (RadioGroup)findViewById(R.id.radioG);

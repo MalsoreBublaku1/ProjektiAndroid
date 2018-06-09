@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.example.hp.projektiandroid.explore.ChooseActivity">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
     <TextView
 
         android:id="@+id/fillimi"
@@ -124,6 +133,7 @@
             android:layout_height="wrap_content" />
         <RelativeLayout
             android:layout_width="match_parent"
+            android:id="@+id/rl1"
             android:layout_height="wrap_content">
             <RadioGroup
                 android:id="@+id/radioG"
@@ -148,7 +158,83 @@
             </RadioGroup>
 
 
+
+
         </RelativeLayout>
+
+
+        <View
+            android:id="@+id/vija5"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/rl1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
+
+        <TextView
+            android:id="@+id/pyetja5"
+            android:text="Number of beds"
+            android:textColor="#000000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="272dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"></Spinner>
+
+
+
+        <View
+            android:id="@+id/vija6"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/spinner3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
+
+        <TextView
+            android:id="@+id/pyetja6"
+            android:text="Number of guests"
+            android:textColor="#000000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinner4"
+            android:layout_width="272dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"></Spinner>
+
+
+
+
+        <View
+            android:id="@+id/vija7"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/spinner4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
+
+
 
         <Button
             android:id="@+id/btnNext"
@@ -160,6 +246,10 @@
             android:text="Next" />
 
     </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </RelativeLayout>

@@ -54,6 +54,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
         holder.AlbumTitle.setText(ft.getName());
         holder.Location.setText(ft.getLocation());
         holder.Cmimi.setText(ft.getCmimi());
+        holder.noOfBeds.setText(ft.getNoOfBeds());
 
 
     }
@@ -74,6 +75,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
         TextView AlbumTitle;
         TextView Location;
         TextView Cmimi;
+        TextView noOfBeds;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
@@ -81,6 +83,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
             Location = itemView.findViewById(R.id.location);
             AlbumTitle = itemView.findViewById(R.id.album_titulli);
             Cmimi = itemView.findViewById(R.id.cmimi);
+            noOfBeds=itemView.findViewById(R.id.noOfBeds);
 
 
         }

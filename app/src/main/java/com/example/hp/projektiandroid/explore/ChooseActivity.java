@@ -144,7 +144,7 @@ public class ChooseActivity extends AppCompatActivity {
             }
         });
 
-        //Firebase innit
+        //Firebase innit-
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
 

@@ -216,7 +216,7 @@ public class ChooseActivity extends AppCompatActivity {
             }
         });
     }
-
+//
     private void uploadImage() {
         if(filePath != null){
             final ProgressDialog progressDialog = new ProgressDialog(this);

@@ -29,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_below="@+id/vija">
+        android:layout_below="@+id/vija"
+        android:id="@+id/linearLayout">
 
         <TextView
             android:id="@+id/pyetja1"
@@ -76,20 +77,89 @@
             android:layout_marginTop="5dp"
             android:layout_marginLeft="20dp"></Spinner>
 
+        <View
+            android:id="@+id/vija2"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/fillimi"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+        <TextView
+            android:id="@+id/pyetja3"
+            android:text="What will guests have:"
+            android:textColor="#000000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="272dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"></Spinner>
+
+        <View
+            android:id="@+id/vija3"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/fillimi"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+        <TextView
+            android:id="@+id/pyetja4"
+            android:text="Is this set up as a dedicated guest space?"
+            android:textColor="#000000"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioGroup
+                android:id="@+id/radioG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:id="@+id/buton1"
+                    android:layout_marginLeft="15dp"
+                    android:text="Yes, it's primarly set up for guests."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="checkedButton"
+                    />
+                <RadioButton
+                    android:id="@+id/buton2"
+                    android:layout_marginLeft="15dp"
+                    android:text="No, I keep my personal belongings here."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="checkedButton"
+                    />
+            </RadioGroup>
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button_solid"
+            android:text="Next" />
 
     </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
 
 
 </RelativeLayout>

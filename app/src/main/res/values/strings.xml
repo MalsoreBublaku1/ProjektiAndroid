@@ -21,4 +21,11 @@
 
 
     </string-array>
+    <string-array name="guests">
+        <item></item>
+        <item>Entire place</item>
+        <item>Private room</item>
+        <item>Shared room</item>
+        <item>The whole restaurant</item>
+    </string-array>
 </resources>

@@ -6,160 +6,309 @@
     android:layout_height="match_parent"
     tools:context="com.example.hp.projektiandroid.explore.ChooseActivity">
 
-    <TextView
 
-        android:id="@+id/fillimi"
-        android:text="Which of these sounds most like your place?"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <View
-        android:id="@+id/vija"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@+id/fillimi"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@android:color/darker_gray"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@+id/vija"
-        android:id="@+id/linearLayout">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/pyetja1"
-            android:text="First, let's narrow things down:"
-            android:textColor="#000000"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-         <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="272dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"></Spinner>
-
-        <View
-            android:id="@+id/vija1"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/fillimi"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@android:color/darker_gray"/>
-        <TextView
-            android:id="@+id/pyetja2"
-            android:text="Now choose a property type:"
-            android:textColor="#000000"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
 
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="272dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"></Spinner>
-
-        <View
-            android:id="@+id/vija2"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/fillimi"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@android:color/darker_gray"/>
-        <TextView
-            android:id="@+id/pyetja3"
-            android:text="What will guests have:"
-            android:textColor="#000000"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="272dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="20dp"></Spinner>
-
-        <View
-            android:id="@+id/vija3"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/fillimi"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@android:color/darker_gray"/>
-        <TextView
-            android:id="@+id/pyetja4"
-            android:text="Is this set up as a dedicated guest space?"
-            android:textColor="#000000"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RadioGroup
-                android:id="@+id/radioG"
+                android:id="@+id/fillimi"
+                android:text="Which of these sounds most like your place?"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <RadioButton
-                    android:id="@+id/buton1"
-                    android:layout_marginLeft="15dp"
-                    android:text="Yes, it's primarly set up for guests."
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/vija"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/fillimi"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@+id/vija"
+                android:id="@+id/linearLayout">
+
+                <TextView
+                    android:id="@+id/pyetja1"
+                    android:text="First, let's narrow things down:"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"></Spinner>
+
+                <View
+                    android:id="@+id/vija1"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/fillimi"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:id="@+id/pyetja2"
+                    android:text="Now choose a property type:"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"></Spinner>
+
+                <View
+                    android:id="@+id/vija2"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/fillimi"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:id="@+id/pyetja3"
+                    android:text="What will guests have:"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner2"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"></Spinner>
+
+                <View
+                    android:id="@+id/vija3"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/fillimi"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+                <TextView
+                    android:id="@+id/pyetja4"
+                    android:text="Is this set up as a dedicated guest space?"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/rl1"
+                    android:layout_height="wrap_content">
+                    <RadioGroup
+                        android:id="@+id/radioG"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/buton1"
+                            android:layout_marginLeft="15dp"
+                            android:text="Yes, it's primarly set up for guests."
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkedButton"
+                            />
+                        <RadioButton
+                            android:id="@+id/buton2"
+                            android:layout_marginLeft="15dp"
+                            android:text="No, I keep my personal belongings here."
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="checkedButton"
+                            />
+                    </RadioGroup>
+
+
+
+
+                </RelativeLayout>
+
+
+                <View
+                    android:id="@+id/vija5"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/rl1"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+
+                <TextView
+                    android:id="@+id/pyetja5"
+                    android:text="Number of beds"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"></Spinner>
+
+
+
+                <View
+                    android:id="@+id/vija6"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/spinner3"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+
+                <TextView
+                    android:id="@+id/pyetja6"
+                    android:text="Number of guests"
+                    android:textColor="#000000"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:id="@+id/spinner4"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="20dp"></Spinner>
+
+
+
+
+                <View
+                    android:id="@+id/vija7"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_below="@+id/spinner4"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+
+
+
+                <Button
+                    android:id="@+id/btnNext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="checkedButton"
-                    />
-                <RadioButton
-                    android:id="@+id/buton2"
-                    android:layout_marginLeft="15dp"
-                    android:text="No, I keep my personal belongings here."
+                    android:layout_marginLeft="230dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/rounded_button_solid"
+                    android:text="Next" />
+
+                <View
+                    android:id="@+id/vija4"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/fillimi"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:background="@android:color/darker_gray"/>
+
+                <TextView
+                    android:id="@+id/pyetja7"
+                    android:text="Please choose and upload an Image for your home."
+                    android:textColor="#000000"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="checkedButton"
-                    />
-            </RadioGroup>
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:id="@+id/layout_button"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btnChoose"
+                        android:text="Choose"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_button_solid"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/btnUpload"
+                        android:text="Upload"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_button_solid"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
 
 
-        </RelativeLayout>
 
-        <Button
-            android:id="@+id/btnNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="230dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/rounded_button_solid"
-            android:text="Next" />
 
-    </LinearLayout>
+
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/imgView"
+                    android:layout_below="@id/layout_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </RelativeLayout>

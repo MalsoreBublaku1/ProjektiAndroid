@@ -9,10 +9,10 @@ public class ExploreModel {
     String location;
     String cmimi;
 
-public ExploreModel(){
+    public ExploreModel(){
 
 
-}
+    }
     public ExploreModel(String name, int image, String location, String cmimi,String noOfBeds) {
         this.name = name;
         this.noOfBeds=noOfBeds;
@@ -45,6 +45,5 @@ public ExploreModel(){
         return cmimi;
     }
 }
-
 
 

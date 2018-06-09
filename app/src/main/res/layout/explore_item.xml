@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!--<data>-->
-<!---->
-        <!--<variable-->
-            <!--name="ExploreItem"-->
-            <!--type="com.example.hp.projektiandroid.explore.ExploreModel" />-->
+    <!---->
+    <!--<variable-->
+    <!--name="ExploreItem"-->
+    <!--type="com.example.hp.projektiandroid.explore.ExploreModel" />-->
     <!--</data>-->
 
     <data>
@@ -69,13 +69,13 @@
             android:layout_width="wrap_content"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:id="@+id/noOfBeds"
-            android:layout_height="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/noOfBeds"
+                android:layout_height="wrap_content"
 
-            android:textColor="#29062d"
-            />
+                android:textColor="#29062d"
+                />
 
 
         </LinearLayout>

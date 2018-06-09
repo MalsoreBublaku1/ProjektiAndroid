@@ -6,33 +6,65 @@
 
 
 
-  <LinearLayout
+  <RelativeLayout
       android:layout_width="match_parent"
-      android:orientation="vertical"
       android:layout_height="match_parent">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="MALSORE"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textColor="#306d54"
+        android:textSize="20dp"
+
         android:id="@+id/emriUserAktiv"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/ngjyra4"
+        android:layout_below="@id/emriUserAktiv"></LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@drawable/bg_calendar"
+        android:layout_below="@id/emriUserAktiv"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_marginTop="3dp"
+        android:layout_height="300dp">
+
     <TextView
+        android:layout_below="@id/emriUserAktiv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Press the image to change the profile pic"
-        android:textSize="15dp"/>
+        android:textColor="@color/teksti"
+        android:id="@+id/teksti"
+        android:text=" Change profile picture"
+        android:textSize="20dp"/>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="@color/teksti"></LinearLayout>
 
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_below="@id/teksti"
+        android:layout_width="145dp"
         android:layout_gravity="center"
-        android:layout_height="wrap_content"
+        android:layout_height="145dp"
         android:id="@+id/imageView"
         android:layout_margin="20dp"
-        android:background="@drawable/icon_camera"/>
+        android:background="@drawable/prof_pic"/>
 
     <Button
         android:id="@+id/buttonSave"
+        android:layout_below="@id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -43,6 +75,10 @@
         android:text="Save"
         android:textAllCaps="false" />
 
+    </LinearLayout>
+
+
+  </RelativeLayout>
 
 
 
@@ -51,8 +87,6 @@
 
 
 
-
-  </LinearLayout>
 
 
 </FrameLayout>

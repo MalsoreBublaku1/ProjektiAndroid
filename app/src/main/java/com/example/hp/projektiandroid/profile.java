@@ -11,14 +11,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 
 
 public class profile extends Fragment {
     FirebaseAuth mAuth;
     Context c;
     TextView txt1;
+    private Firebase mRef;
+    DatabaseReference databaseReference;
+
+
 
     //
     @Override
@@ -28,6 +38,9 @@ public class profile extends Fragment {
         mAuth = FirebaseAuth.getInstance();
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+
+
 
         txt1 = (TextView) view.findViewById(R.id.emriUserAktiv);
         loadUserInformation();
@@ -52,12 +65,14 @@ public class profile extends Fragment {
 
     private void loadUserInformation() {
         final FirebaseUser user = mAuth.getCurrentUser();
-        String name, email, photoUrl, uid, emailVerified;
+        String name;
         if (user != null) {
 
-            Toast.makeText(getContext(),"user aktiv",Toast.LENGTH_LONG).show();
+
             name=user.getDisplayName();
-            Toast.makeText(getContext(),name,Toast.LENGTH_LONG).show();
+            txt1.setText(name);
+
+
 
 
 

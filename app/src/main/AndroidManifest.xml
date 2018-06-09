@@ -42,7 +42,15 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Kryesore" />
+        <activity android:name=".Kryesore">
+
+
+        <intent-filter>
+        <action android:name="kryesore-filter" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
         <activity android:name=".CalendarActivity">
             <intent-filter>
                 <action android:name="calendar-filter" />

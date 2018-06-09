@@ -177,7 +177,7 @@ public class    MainActivity extends AppCompatActivity implements View.OnClickLi
 
         if(mAuth.getCurrentUser() != null){
             finish();
-            startActivity(new Intent(this,ProfileActivity.class));
+            startActivity(new Intent(this,Kryesore.class));
         }
     }
 

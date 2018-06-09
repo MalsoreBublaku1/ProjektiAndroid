@@ -7,17 +7,29 @@ package com.example.hp.projektiandroid;
 public class ProfileModel1 {
 
     String pershkrimi;
+    int image;
 
 
-    public ProfileModel1(String pershkrimi)
+
+    public ProfileModel1(String pershkrimi,int image)
     {
         this.pershkrimi=pershkrimi;
+        this.image=image;
 
 
 
 
 
 
+
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public String getPershkrimi() {

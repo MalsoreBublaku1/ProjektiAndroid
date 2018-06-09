@@ -1,8 +1,6 @@
 package com.example.hp.projektiandroid.explore;
 
-/**
- * Created by HP on 5/9/2018.
- */
+
 
 public class ExploreModel {
     String name;

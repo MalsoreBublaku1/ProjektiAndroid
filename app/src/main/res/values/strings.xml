@@ -6,4 +6,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="homes">
+        <item></item>
+        <item>Homes</item>
+        <item>Restuarants</item>
+
+    </string-array>
+    <string-array name="pyetja2">
+        <item></item>
+        <item>Apartaments</item>
+        <item>Cabin</item>
+        <item>Fish Restuarant</item>
+        <item>Familt Restuarant</item>
+
+
+    </string-array>
 </resources>

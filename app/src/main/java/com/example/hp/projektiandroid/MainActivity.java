@@ -157,7 +157,7 @@ public class    MainActivity extends AppCompatActivity implements View.OnClickLi
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     finish();
-                    Intent intent = new Intent(MainActivity.this, Kryesore.class);
+                    Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }

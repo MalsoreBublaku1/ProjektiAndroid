@@ -11,9 +11,7 @@ import android.view.ViewGroup;
 import com.example.hp.projektiandroid.R;
 import com.example.hp.projektiandroid.databinding.FragmentRestaurantBinding;
 
-/**
- * Created by HP on 5/13/2018.
- */
+
 
 public class FragmentRestaurant extends Fragment {
     FragmentRestaurantBinding binding;

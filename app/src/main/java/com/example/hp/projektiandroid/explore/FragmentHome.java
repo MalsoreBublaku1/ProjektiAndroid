@@ -52,8 +52,17 @@ public class FragmentHome extends Fragment {
         if (bundle != null) {
             System.out.println("Erdh inggoo");
             String guests = bundle.getString("guests", "0");
-            Toast.makeText(getContext(),"Erdh info"+guests,Toast.LENGTH_SHORT).show();
-            getDataFirebaseGuests(guests);
+            String data = bundle.getString("dates", "nodata");
+            if(!guests.equals("0"))
+            {
+                getDataFirebaseGuests(guests);
+            }
+            else if(!data.equals("nodata"))
+            {
+                getDataFirebaseDates(data);
+            }
+            Toast.makeText(getContext(),"Erdh info guests"+guests+" data"+data,Toast.LENGTH_SHORT).show();
+
         }
         else
         {
@@ -109,7 +118,47 @@ public class FragmentHome extends Fragment {
             }
         });
     }
+    void getDataFirebaseDates(final String date)
+    {
 
+
+
+        DBR.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                ExploreModel em=new ExploreModel();
+                em=dataSnapshot.getValue(ExploreModel.class);
+//                if(em.().equals(numGuests)){
+//                    fotot_texti.add(em);}
+
+                binding.homesRecycle.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     void getDataFirebaseGuests(final String numGuests)
     {

@@ -13,11 +13,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.hp.projektiandroid.R;
 import com.example.hp.projektiandroid.databinding.FragmentExploreBinding;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 
 public class FragmentExplore extends Fragment {
@@ -59,11 +64,7 @@ public class FragmentExplore extends Fragment {
         binding.btnDates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder dialogu = new AlertDialog.Builder(getContext());
-                View view1 = getLayoutInflater().inflate(R.layout.activity_calendar, null);
-                dialogu.setView(view1);
-                AlertDialog dialogu2 = dialogu.create();
-                dialogu2.show();
+                openDialogDates(getContext());
             }
 
         });
@@ -117,6 +118,41 @@ public class FragmentExplore extends Fragment {
         });
 
         noOfGuests = sp.getSelectedItem().toString();
+
+
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        dialog.show();
+
+
+    }
+    private void openDialogDates(Context context) {
+        final Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.activity_calendar);
+
+        final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+
+
+        Button btn=dialog.findViewById(R.id.saveDates);
+        final CalendarView calendarView=dialog.findViewById(R.id.calendar);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("Butoni u klikua");
+                final Calendar cal = Calendar.getInstance();
+                FragmentHome fragment = new FragmentHome();
+                Bundle bundle = new Bundle();
+                String data=dateFormat.format(cal.getTime());
+                Toast.makeText(getContext(),"Data"+data,Toast.LENGTH_SHORT).show();
+                System.out.println("Data ehste "+data);
+                bundle.putString("dates", data);
+                fragment.setArguments(bundle);
+                openFragment(fragment);
+                dialog.dismiss();
+
+            }
+        });
+
+
 
 
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);

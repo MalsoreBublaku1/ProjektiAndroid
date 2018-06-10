@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="390dp"
+    android:layout_height="wrap_content"
     android:background="@color/ngjyraHeaderFooter"
     android:orientation="vertical"
     tools:context=".CalendarActivity">
@@ -33,11 +33,17 @@
         android:layout_height="wrap_content">
         
         <CalendarView
+            android:id="@+id/calendar"
             android:layout_width="wrap_content"
-
             android:layout_height="320dp">
 
         </CalendarView>
     </LinearLayout>
+    <Button
+        android:id="@+id/saveDates"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content"
+        android:text="Search"/>
 
 </LinearLayout>

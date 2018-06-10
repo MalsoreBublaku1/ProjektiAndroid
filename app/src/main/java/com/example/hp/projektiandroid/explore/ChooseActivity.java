@@ -181,13 +181,13 @@ public class ChooseActivity extends AppCompatActivity {
             }
         });
 
-
+//ketu shtohetn te dhenat ne databaze
         System.out.println("No of Beds ne 1 "+noOfBeds);
         btnNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExploreModel em=new ExploreModel("Malsore",0,"Kosova","20euro",noOfBeds+" beds","OK");
-                // addnew(em);
+                ExploreModel em=new ExploreModel("Malsore",0,"Kosova","20euro",noOfBeds+" beds");
+                // addnew(em)
                 System.out.println("No of beds:"+noOfBeds);
                 //System.out.println("mesazhi shkoj");
                 ShtoTeDhenat(em);
@@ -258,6 +258,7 @@ public class ChooseActivity extends AppCompatActivity {
         }
 
     }
+
 
     private void chooseImage() {
         Intent intent = new Intent();

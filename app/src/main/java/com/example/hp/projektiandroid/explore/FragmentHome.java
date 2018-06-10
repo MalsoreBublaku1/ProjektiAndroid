@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,7 +49,11 @@ public class FragmentHome extends Fragment {
         DBR=FDB.getReference("TabelaExplore");
 
         fotot_texti=new ArrayList<>();
+
         adapter = new ExploreAdapter(c, fotot_texti);
+        LinearLayoutManager manager = new LinearLayoutManager(c);
+        System.out.println("Aktiviteti:"+c);
+        binding.homesRecycle.setLayoutManager(manager);
         getDataFirebase();
 
 
@@ -69,6 +74,7 @@ public class FragmentHome extends Fragment {
                 ExploreModel em=new ExploreModel();
                 em=dataSnapshot.getValue(ExploreModel.class);
                 fotot_texti.add(em);
+
                 binding.homesRecycle.setAdapter(adapter);
 
 

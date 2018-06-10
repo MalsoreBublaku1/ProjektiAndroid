@@ -5,24 +5,41 @@ package com.example.hp.projektiandroid.explore;
 public class ExploreModel {
     String noOfBeds;
     String name;
-    int image;
+
     String location;
     String cmimi;
-
+    String fotojaURL;
+    String noOfGuests;
 
     public ExploreModel(){
 
 
     }
-    public ExploreModel(String name, int image, String location, String cmimi,String noOfBeds) {
+    public ExploreModel(String name, String location, String cmimi,String noOfBeds,String fotojaURL,String noOfGuests) {
         this.name = name;
         //this.fotojaUrl=fotojaUrl;
         this.noOfBeds=noOfBeds;
-        this.image = image;
         this.location = location;
         this.cmimi = cmimi;
+        this.fotojaURL=fotojaURL;
+        this.noOfGuests=noOfGuests;
     }
 
+    public String getNoOfGuests() {
+        return noOfGuests;
+    }
+
+    public void setNoOfGuests(String noOfGuests) {
+        this.noOfGuests = noOfGuests;
+    }
+
+    public String getFotojaURL() {
+        return fotojaURL;
+    }
+
+    public void setFotojaURL(String fotojaURL) {
+        this.fotojaURL = fotojaURL;
+    }
 
     public String getNoOfBeds() {
         return noOfBeds;
@@ -36,9 +53,7 @@ public class ExploreModel {
         return name;
     }
 
-    public int getImage() {
-        return image;
-    }
+
 
     public String getLocation() {
         return location;

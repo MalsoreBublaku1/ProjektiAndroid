@@ -92,6 +92,7 @@
                         <Button
                             android:layout_width="70dp"
                             android:layout_height="40dp"
+                            android:id="@+id/btnGuests"
                             android:background="@drawable/et_search"
                             android:layout_marginLeft="25dp"
                             android:text="Guests" />

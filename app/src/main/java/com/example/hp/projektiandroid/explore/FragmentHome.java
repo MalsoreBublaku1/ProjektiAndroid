@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.hp.projektiandroid.R;
 import com.example.hp.projektiandroid.databinding.FragmentHomeBinding;
@@ -41,20 +42,26 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.fragment_home, container, false);
         c = container.getContext();
-
-        binding.homesRecycle.setLayoutManager(new GridLayoutManager(c, 2));
-       // binding.homesRecycle.setAdapter(adapter);
         FDB= FirebaseDatabase.getInstance();
-
         DBR=FDB.getReference("TabelaExplore");
 
         fotot_texti=new ArrayList<>();
-
         adapter = new ExploreAdapter(c, fotot_texti);
-        LinearLayoutManager manager = new LinearLayoutManager(c);
-        System.out.println("Aktiviteti:"+c);
-        binding.homesRecycle.setLayoutManager(manager);
-        getDataFirebase();
+        binding.homesRecycle.setLayoutManager(new GridLayoutManager(getContext(),2));
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            System.out.println("Erdh inggoo");
+            String guests = bundle.getString("guests", "0");
+            Toast.makeText(getContext(),"Erdh info"+guests,Toast.LENGTH_SHORT).show();
+            getDataFirebaseGuests(guests);
+        }
+        else
+        {
+            System.out.println("Nuk eshte thirrur search");
+            getDataFirebase();
+        }
+
+
 
 
 
@@ -103,6 +110,48 @@ public class FragmentHome extends Fragment {
         });
     }
 
+
+    void getDataFirebaseGuests(final String numGuests)
+    {
+
+
+
+        DBR.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                ExploreModel em=new ExploreModel();
+                em=dataSnapshot.getValue(ExploreModel.class);
+                if(em.getNoOfGuests().equals(numGuests)){
+                fotot_texti.add(em);}
+
+                binding.homesRecycle.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 
 
 }

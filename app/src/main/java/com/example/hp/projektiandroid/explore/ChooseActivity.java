@@ -35,12 +35,13 @@ import java.util.UUID;
 
 
 public class ChooseActivity extends AppCompatActivity {
-    Spinner spinner, spinner1,spinner2,spinner4;
+    Spinner spinner, spinner1,spinner2;
     ArrayAdapter<CharSequence> adapter,adapter1,adapter2,adapter3,adapter4;
     RadioGroup radioGroup;
     RadioButton radioButton;
     Button btnNext1;
     static String noOfBeds="";
+    static String noOfGuests="";
     static Context c;
     static String url="";
     DatabaseReference databaseReference;
@@ -48,7 +49,6 @@ public class ChooseActivity extends AppCompatActivity {
     //variablat per foto
     private Button btnChoose,btnUpload;
     private ImageView imageView;
-
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST =71;
 
@@ -63,6 +63,7 @@ public class ChooseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final Spinner spinner3;
+        final Spinner spinner4;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
         //first spinner(drop down list)
@@ -171,7 +172,7 @@ public class ChooseActivity extends AppCompatActivity {
         spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String noOfGuests=parent.getItemAtPosition(position).toString();
+                noOfGuests=spinner4.getSelectedItem().toString();
                 Toast.makeText(getBaseContext(),noOfGuests,Toast.LENGTH_LONG).show();
             }
 
@@ -181,12 +182,14 @@ public class ChooseActivity extends AppCompatActivity {
             }
         });
 
+        noOfGuests=spinner4.getSelectedItem().toString();
+
 //ketu shtohetn te dhenat ne databaze
         System.out.println("No of Beds ne 1 "+noOfBeds);
         btnNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExploreModel em=new ExploreModel("Malsore",0,"Kosova","20euro",noOfBeds+" beds");
+                ExploreModel em=new ExploreModel("Malsore","Kosova","20euro",noOfBeds+" beds",url,noOfGuests);
                 // addnew(em)
                 System.out.println("No of beds:"+noOfBeds);
                 //System.out.println("mesazhi shkoj");

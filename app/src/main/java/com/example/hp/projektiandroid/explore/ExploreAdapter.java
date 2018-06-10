@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hp.projektiandroid.R;
+import com.example.hp.projektiandroid.profileAdapter;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -50,11 +52,12 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
         //holder.Album.setImageResource(image_id);
         //holder.AlbumTitle.setText("Image"+position);
         ExploreModel ft = fotot_texti.get(position);
-        holder.Album.setImageResource(ft.getImage());
+       // holder.Album.setImageResource(ft.getImage());
         holder.AlbumTitle.setText(ft.getName());
         holder.Location.setText(ft.getLocation());
         holder.Cmimi.setText(ft.getCmimi());
         holder.noOfBeds.setText(ft.getNoOfBeds());
+        Picasso.get().load(ft.getFotojaURL()).into(holder.Album);
 
 
     }

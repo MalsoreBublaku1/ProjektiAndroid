@@ -42,6 +42,7 @@ public class ChooseActivity extends AppCompatActivity {
     Button btnNext1;
     static String noOfBeds="";
     static Context c;
+    static String url="";
     DatabaseReference databaseReference;
 
     //variablat per foto
@@ -185,13 +186,17 @@ public class ChooseActivity extends AppCompatActivity {
         btnNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ExploreModel em=new ExploreModel("Malsore",0,"Kosova","20euro",noOfBeds+" beds");
+                ExploreModel em=new ExploreModel("Malsore",0,"Kosova","20euro",noOfBeds+" beds","OK");
                 // addnew(em);
                 System.out.println("No of beds:"+noOfBeds);
                 //System.out.println("mesazhi shkoj");
                 ShtoTeDhenat(em);
             }
         });
+
+
+
+
 
         //Firebase innit
         storage = FirebaseStorage.getInstance();
@@ -229,9 +234,13 @@ public class ChooseActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
+                            url=taskSnapshot.getDownloadUrl().toString();
                             Toast.makeText(ChooseActivity.this,"Uploaded",Toast.LENGTH_LONG).show();
+                            //databaseReference.push().setValue(url);
+
                         }
                     })
+
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {

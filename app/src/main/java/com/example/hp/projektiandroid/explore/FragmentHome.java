@@ -66,7 +66,7 @@ public class FragmentHome extends Fragment {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                ExploreModel em = new ExploreModel();
+                ExploreModel em=new ExploreModel();
                 em=dataSnapshot.getValue(ExploreModel.class);
                 fotot_texti.add(em);
                 binding.homesRecycle.setAdapter(adapter);

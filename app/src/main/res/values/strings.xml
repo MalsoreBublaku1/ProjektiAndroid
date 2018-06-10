@@ -53,6 +53,51 @@
     </string-array>
 
 
+
+
+
+
+
+
+
+
+
+    <string-array name="location">
+        <item></item>
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>China</item>
+        <item>Kosovo</item>
+        <item>Finland</item>
+        <item>United Kingdom</item>
+        <item>United States</item>
+        <item>Puerto Rico</item>
+        <item>Portugal</item>
+
+
+    </string-array>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <string-array name="pyetja2">
         <item></item>
         <item>Apartaments</item>

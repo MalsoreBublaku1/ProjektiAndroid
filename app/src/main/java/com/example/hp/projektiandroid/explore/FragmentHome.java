@@ -121,16 +121,14 @@ public class FragmentHome extends Fragment {
     void getDataFirebaseDates(final String date)
     {
 
-
-
         DBR.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em=new ExploreModel();
                 em=dataSnapshot.getValue(ExploreModel.class);
-//                if(em.().equals(numGuests)){
-//                    fotot_texti.add(em);}
+                if(em.getDate().equals(date)){
+                    fotot_texti.add(em);}
 
                 binding.homesRecycle.setAdapter(adapter);
 

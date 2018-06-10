@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -29,7 +30,7 @@ public class FragmentExplore extends Fragment {
 
     FragmentExploreBinding binding;
     ExploreAdapter adapter;
-
+    static String dateis = "";
     static String noOfGuests = "";
 
 
@@ -129,22 +130,25 @@ public class FragmentExplore extends Fragment {
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.activity_calendar);
 
-        final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 
 
         Button btn=dialog.findViewById(R.id.saveDates);
         final CalendarView calendarView=dialog.findViewById(R.id.calendar);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                int month1=month+1;
+                dateis = dayOfMonth + "/" + month1 + "/" + year;
+                System.out.println("Te dialogu data"+dateis);
+            }
+        });
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println("Butoni u klikua");
-                final Calendar cal = Calendar.getInstance();
                 FragmentHome fragment = new FragmentHome();
                 Bundle bundle = new Bundle();
-                String data=dateFormat.format(cal.getTime());
-                Toast.makeText(getContext(),"Data"+data,Toast.LENGTH_SHORT).show();
-                System.out.println("Data ehste "+data);
-                bundle.putString("dates", data);
+                bundle.putString("dates", dateis);
                 fragment.setArguments(bundle);
                 openFragment(fragment);
                 dialog.dismiss();

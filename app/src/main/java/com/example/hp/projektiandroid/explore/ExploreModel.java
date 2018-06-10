@@ -5,17 +5,18 @@ package com.example.hp.projektiandroid.explore;
 public class ExploreModel {
     String noOfBeds;
     String name;
-
     String location;
     String cmimi;
     String fotojaURL;
     String noOfGuests;
+    String date;
+
 
     public ExploreModel(){
 
 
     }
-    public ExploreModel(String name, String location, String cmimi,String noOfBeds,String fotojaURL,String noOfGuests) {
+    public ExploreModel(String name, String location, String cmimi,String noOfBeds,String fotojaURL,String noOfGuests,String date) {
         this.name = name;
         //this.fotojaUrl=fotojaUrl;
         this.noOfBeds=noOfBeds;
@@ -23,6 +24,15 @@ public class ExploreModel {
         this.cmimi = cmimi;
         this.fotojaURL=fotojaURL;
         this.noOfGuests=noOfGuests;
+        this.date=date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getNoOfGuests() {

@@ -56,7 +56,7 @@ public class profile extends Fragment {
     Button butoni;
 
 
-    //
+    //s
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

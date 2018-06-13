@@ -17,9 +17,7 @@ import java.util.ArrayList;
 
 //adapteri i lidh te dhenat tona me recyclerView edhe e percakton ViewHolderin per ti shfaqur keto te dhena(renderin ma shpejt)
 
-/**
- * Created by HP on 5/9/2018.
- */
+
 
 public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageViewHolder> {
     Context c;//

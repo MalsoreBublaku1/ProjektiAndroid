@@ -259,7 +259,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
 
-    //-------------------------------------
+    //--------------------------------------
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

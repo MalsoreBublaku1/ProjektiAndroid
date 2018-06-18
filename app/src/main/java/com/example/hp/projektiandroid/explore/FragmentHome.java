@@ -25,9 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-/**
- * Created by HP on 5/13/2018.
- */
+
 
 public class FragmentHome extends Fragment {
     static FragmentHomeBinding binding;
@@ -61,13 +59,16 @@ public class FragmentHome extends Fragment {
             System.out.println("Erdh inggoo");
             String guests = bundle.getString("guests", "0");
             String data = bundle.getString("dates", "nodata");
-
+            String search = bundle.getString("search", "nosearch");
             if (!guests.equals("0")) {
                 getDataFirebaseGuests(guests);
             } else if (!data.equals("nodata")) {
                 getDataFirebaseDates(data);
+            } else if (!search.equals("nosearch")) {
+                System.out.println("U thirr search");
+                getDataFirebaseSearch(search);
             }
-            Toast.makeText(getContext(), "Erdh info guests" + guests + " data" + data, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Erdh info guests" + guests + " data" + data+ "search "+search, Toast.LENGTH_SHORT).show();
 
         } else {
             System.out.println("Nuk eshte thirrur search");
@@ -209,6 +210,48 @@ public class FragmentHome extends Fragment {
         });
     }
 
+    void getDataFirebaseSearch(final String search) {
 
+
+        DBR.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                ExploreModel em = new ExploreModel();
+                em = dataSnapshot.getValue(ExploreModel.class);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.isSaved);
+                String search_string=search.toLowerCase();
+                //qetu percaktohet ne baze te qka me u bo search psh ktu ekem bo search ne baze te datas,lokacionit,qmimit,emrit
+                if (ex.getDate().toLowerCase().contains(search_string) || ex.getLocation().toLowerCase().contains(search_string) || ex.getName().toLowerCase().contains(search_string) || ex.getCmimi().toLowerCase().contains(search_string)) {
+                    fotot_texti.add(ex);
+                }
+
+                binding.homesRecycle.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 }
 

@@ -9,12 +9,15 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -30,6 +33,7 @@ public class FragmentExplore extends Fragment {
 
     FragmentExploreBinding binding;
     ExploreAdapter adapter;
+    EditText search;
     static String dateis = "";
     static String noOfGuests = "";
 
@@ -38,8 +42,37 @@ public class FragmentExplore extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.fragment_explore, container, false);
-        FragmentHome fragmentHome=new FragmentHome();
+        FragmentHome fragmentHome = new FragmentHome();
         openFragment(fragmentHome);
+        binding.etSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!s.equals("") && !s.equals(null)) {
+                    FragmentHome fragmentHome = new FragmentHome();
+                    Bundle bundle = new Bundle();
+                    String search_word = s.toString();
+                    bundle.putString("search", search_word);
+                    fragmentHome.setArguments(bundle);
+                    openFragment(fragmentHome);
+                }
+                else
+                {
+                    FragmentHome fragmentHome = new FragmentHome();
+                    openFragment(fragmentHome);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         binding.btnGuests.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,11 +137,11 @@ public class FragmentExplore extends Fragment {
             }
         });
         noOfGuests = sp.getSelectedItem().toString();
-        Button btn=dialog.findViewById(R.id.searchbtn);
+        Button btn = dialog.findViewById(R.id.searchbtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Number of gustes"+noOfGuests);
+                System.out.println("Number of gustes" + noOfGuests);
                 FragmentHome fragment = new FragmentHome();
                 Bundle bundle = new Bundle();
                 bundle.putString("guests", noOfGuests);
@@ -127,20 +160,20 @@ public class FragmentExplore extends Fragment {
 
 
     }
+
     private void openDialogDates(Context context) {
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.activity_calendar);
 
 
-
-        Button btn=dialog.findViewById(R.id.saveDates);
-        final CalendarView calendarView=dialog.findViewById(R.id.calendar);
+        Button btn = dialog.findViewById(R.id.saveDates);
+        final CalendarView calendarView = dialog.findViewById(R.id.calendar);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
-                int month1=month+1;
+                int month1 = month + 1;
                 dateis = dayOfMonth + "/" + month1 + "/" + year;
-                System.out.println("Te dialogu data"+dateis);
+                System.out.println("Te dialogu data" + dateis);
             }
         });
         btn.setOnClickListener(new View.OnClickListener() {
@@ -156,8 +189,6 @@ public class FragmentExplore extends Fragment {
 
             }
         });
-
-
 
 
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);

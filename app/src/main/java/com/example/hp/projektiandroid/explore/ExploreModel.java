@@ -14,6 +14,25 @@ public class ExploreModel implements Serializable {
     String tipi;
     Boolean isSaved;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setCmimi(String cmimi) {
+        this.cmimi = cmimi;
+    }
+
+    public Boolean getSaved() {
+        return isSaved;
+    }
+
+    public void setSaved(Boolean saved) {
+        isSaved = saved;
+    }
 
     public ExploreModel(){
 

@@ -56,7 +56,7 @@ public class profile extends Fragment {
     Button butoni;
 
 
-    //s
+    //
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -73,6 +73,7 @@ public class profile extends Fragment {
         imv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                imv.setImageResource(0);
                 showImageChooser();
             }
         });
@@ -134,8 +135,8 @@ public class profile extends Fragment {
 
         FirebaseUser user = mAuth.getCurrentUser();
 
-        if (user != null && profileImageUrl != null) {
-            final UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
+        if(user != null && profileImageUrl != null){
+            UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
                     .setPhotoUri(Uri.parse(profileImageUrl))
                     .build();
 
@@ -143,8 +144,8 @@ public class profile extends Fragment {
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                //Toast.makeText(profile.this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                            if(task.isSuccessful()){
+                               // Toast.makeText(ProfileActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -193,7 +194,7 @@ public class profile extends Fragment {
                         @Override
                         public void onFailure(@NonNull Exception e) {
 
-                           // Toast.makeText(profile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            // Toast.makeText(profile.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -206,14 +207,6 @@ public class profile extends Fragment {
         startActivityForResult(intent.createChooser(intent,"Select Profile Picture!"), CHOOSE_IMAGE);
     }
 }
-
-
-
-
-
-
-
-
 
 
 

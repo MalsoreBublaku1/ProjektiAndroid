@@ -60,7 +60,8 @@
         android:layout_height="145dp"
         android:id="@+id/imageView"
         android:layout_margin="20dp"
-        android:background="@drawable/prof_pic"/>
+        android:background="@drawable/prof_pic"
+        android:scaleType="centerCrop"/>
 
     <Button
         android:id="@+id/buttonSave"

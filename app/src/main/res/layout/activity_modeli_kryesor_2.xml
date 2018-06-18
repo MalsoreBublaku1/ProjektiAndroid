@@ -31,7 +31,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="#e0482a"
+            android:background="#842a17"
             android:text="Save"
            android:layout_alignParentRight="true"
             android:textColor="@android:color/white" />

@@ -46,11 +46,28 @@
                android:layout_height="100dp">
 
                <TextView
+                   android:id="@+id/tipi"
                    android:layout_width="wrap_content"
-                   android:text="Entire House"
+                   android:text=" Entire House"
                    android:textColor="#842815"
                    android:textStyle="bold"
                    android:layout_height="wrap_content" />
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@id/tipi"
+                   android:id="@+id/pershkrimi1"
+                   android:textSize="20dp"
+                   android:textColor="#0c0c0c"
+                   android:text=" Private Pool House with Amazing Views!"
+
+                   />
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@+id/pershkrimi1"/>
+
 
 
            </RelativeLayout>

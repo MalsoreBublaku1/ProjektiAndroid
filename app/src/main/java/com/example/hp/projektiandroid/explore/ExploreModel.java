@@ -10,13 +10,14 @@ public class ExploreModel {
     String fotojaURL;
     String noOfGuests;
     String date;
+    String tipi;
 
 
     public ExploreModel(){
 
 
     }
-    public ExploreModel(String name, String location, String cmimi,String noOfBeds,String fotojaURL,String noOfGuests,String date) {
+    public ExploreModel(String name, String location, String cmimi,String noOfBeds,String fotojaURL,String noOfGuests,String date,String tipi) {
         this.name = name;
         //this.fotojaUrl=fotojaUrl;
         this.noOfBeds=noOfBeds;
@@ -25,6 +26,7 @@ public class ExploreModel {
         this.fotojaURL=fotojaURL;
         this.noOfGuests=noOfGuests;
         this.date=date;
+        this.tipi=tipi;
     }
 
     public String getDate() {
@@ -71,6 +73,15 @@ public class ExploreModel {
 
     public String getCmimi() {
         return cmimi;
+    }
+
+
+    public String getTipi() {
+        return tipi;
+    }
+
+    public void setTipi(String tipi) {
+        this.tipi = tipi;
     }
 }
 

@@ -64,6 +64,11 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
         holder.Cmimi.setText(ft.getCmimi());
         holder.noOfBeds.setText(ft.getNoOfBeds());
         Picasso.get().load(ft.getFotojaURL()).into(holder.Album);
+        holder.tipi.setText(ft.getTipi());
+
+
+
+
 
         holder.Album.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,6 +101,8 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
         TextView Cmimi;
         TextView noOfBeds;
 
+        TextView tipi;
+
 
 
         public ImageViewHolder(View itemView) {
@@ -105,6 +112,8 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
             AlbumTitle = itemView.findViewById(R.id.album_titulli);
             Cmimi = itemView.findViewById(R.id.cmimi);
             noOfBeds=itemView.findViewById(R.id.noOfBeds);
+
+            tipi=itemView.findViewById(R.id.tipi);
 
 
 

@@ -20,13 +20,21 @@
 
        <RelativeLayout
            android:layout_width="match_parent"
-           android:background="@color/ngjyra4"
+           android:background="@color/ngjyraHeaderFooter"
            android:layout_height="match_parent">
 
            <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="200dp"
                android:id="@+id/fotoja">
+
+               <ImageView
+                   android:layout_centerHorizontal="true"
+                   android:layout_centerVertical="true"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:background="@mipmap/porta33"
+                   />
 
 
            </RelativeLayout>
@@ -41,9 +49,11 @@
 
                android:layout_width="match_parent"
                android:layout_below="@id/linearV"
+               android:layout_margin="4dp"
+               android:id="@+id/relativeH"
                android:background="@drawable/bg_calendar"
 
-               android:layout_height="100dp">
+               android:layout_height="200dp">
 
                <TextView
                    android:id="@+id/tipi"
@@ -54,20 +64,265 @@
                    android:layout_height="wrap_content" />
 
                <TextView
+                   android:layout_margin="5dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_below="@id/tipi"
                    android:id="@+id/pershkrimi1"
                    android:textSize="20dp"
+                   android:textStyle="bold"
                    android:textColor="#0c0c0c"
-                   android:text=" Private Pool House with Amazing Views!"
+                   android:text="Private Pool House with Amazing Views!"
 
                    />
                <TextView
+                   android:layout_marginLeft="5dp"
+                   android:layout_marginRight="5dp"
+                   android:layout_marginTop="2dp"
+                   android:layout_marginBottom="2dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:layout_below="@+id/pershkrimi1"/>
+                   android:layout_below="@+id/pershkrimi1"
+                   android:id="@+id/lokacioni"
+                   android:textSize="20dp"
+                   android:textColor="#333232"
+                   android:text="Los Angeles, United States "
 
+                   />
+
+               <RelativeLayout
+                   android:id="@+id/guestRelative"
+                   android:layout_marginTop="20dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_below="@id/lokacioni"
+                   android:layout_width="wrap_content"
+
+                   android:layout_height="wrap_content">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:id="@+id/ikonaGuests"
+                       android:layout_height="wrap_content"
+                       android:background="@drawable/ic_group_black_24dp"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="3"
+                       android:id="@+id/numriGuests"
+                       android:layout_marginBottom="4dp"
+                       android:textSize="20dp"
+                       android:textColor="#1c1a1a"
+                       android:layout_marginLeft="3dp"
+                       android:layout_toRightOf="@id/ikonaGuests"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text=" guests"
+                       android:textColor="#1c1a1a"
+                       android:layout_marginBottom="4dp"
+                       android:textSize="20dp"
+                       android:layout_marginLeft="3dp"
+                       android:layout_toRightOf="@id/numriGuests"/>
+
+
+
+
+
+
+
+               </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_below="@id/lokacioni"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:id="@+id/ikonaBeds1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_hotel_black_24dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:id="@+id/numriBeds"
+                android:textSize="20dp"
+                android:textColor="#1c1a1a"
+
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="beds"
+                android:textSize="20dp"
+                android:textColor="#1c1a1a"
+                android:layout_marginLeft="50dp"/>
+
+        </RelativeLayout>
+
+
+
+
+               <RelativeLayout
+                   android:layout_marginTop="60dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_below="@id/lokacioni"
+
+                   >
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginLeft="10dp"
+                       android:background="@drawable/ic_store_black_24dp"/>
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="5"
+                       android:id="@+id/numriBedrooms"
+                       android:layout_marginLeft="35dp"
+                       android:textSize="20dp"
+                       android:textColor="#1c1a1a"
+                       />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="bedrooms"
+                       android:layout_marginLeft="53dp"
+                       android:textSize="20dp"
+                       android:textColor="#1c1a1a"
+                       />
+
+
+
+               </RelativeLayout>
+
+
+
+               <RelativeLayout
+                   android:layout_width="wrap_content"
+                   android:layout_below="@id/lokacioni"
+                   android:layout_marginLeft="200dp"
+                   android:layout_marginTop="60dp"
+                   android:layout_height="wrap_content">
+
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:background="@drawable/ic_hot_tub_black_24dp"/>
+
+
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="1"
+                       android:id="@+id/nrBathrooms"
+                       android:textSize="20dp"
+                        android:textColor="#1c1a1a"
+                       android:layout_marginLeft="30dp"/>
+
+
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="bathrooms"
+                       android:textSize="20dp"
+                       android:textColor="#1c1a1a"
+                       android:layout_marginLeft="50dp"/>
+               </RelativeLayout>
+
+
+
+           </RelativeLayout>
+
+
+
+           <RelativeLayout
+               android:layout_below="@id/relativeH"
+               android:layout_width="match_parent"
+               android:background="@drawable/bg_calendar"
+               android:layout_height="380dp"
+               android:layout_margin="4dp"
+               >
+
+
+               <TextView
+                   android:layout_marginTop="5dp"
+                   android:layout_marginLeft="10dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="3 "
+                   android:textColor="#1c1a1a"
+                   android:id="@+id/nightMin"
+                   android:textSize="20dp"/>
+
+               <TextView
+
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="nights min"
+                   android:layout_marginTop="5dp"
+                   android:id="@+id/nightMinText"
+                   android:textColor="#1c1a1a"
+                   android:layout_marginLeft="30dp"
+                   android:textSize="20dp"
+                   />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:background="@color/teksti"
+                   android:id="@+id/linearH"
+                   android:layout_height="1dp"
+                   android:orientation="vertical"
+                   android:layout_margin="10dp"
+                   android:layout_below="@id/nightMinText"></LinearLayout>
+
+
+               <TextView
+                   android:layout_marginLeft="10dp"
+                   android:layout_width="wrap_content"
+                   android:layout_below="@id/linearH"
+                   android:id="@+id/tvAv"
+                   android:layout_height="wrap_content"
+                   android:textSize="20dp"
+                   android:textColor="#1c1a1a"
+                   android:text="Availability Calendar"/>
+
+               <LinearLayout
+
+                   android:layout_centerHorizontal="true"
+                   android:layout_below="@id/tvAv"
+                   android:layout_width="300dp"
+                   android:background="@drawable/bg_calendar"
+                   android:layout_marginTop="40dp"
+                   android:layout_gravity="center"
+                   android:layout_height="wrap_content">
+
+                   <CalendarView
+                       android:id="@+id/calendar"
+                       android:layout_width="wrap_content"
+                       android:layout_height="320dp">
+
+
+                   </CalendarView>
+
+               </LinearLayout>
 
 
            </RelativeLayout>
@@ -107,6 +362,32 @@
             android:layout_width="match_parent"
             android:background="@color/teksti"
             android:layout_height="1dp"></LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" $300"
+            android:textStyle="bold"
+            android:textColor="#1c1a1a"
+            android:textSize="20dp"
+            android:id="@+id/cmimi1"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" per night"
+            android:textColor="#1c1a1a"
+            android:textSize="20dp"
+            android:id="@+id/per_night"
+            android:layout_toRightOf="@id/cmimi1"
+            android:layout_centerVertical="true"
+
+            />
+
+
+
+
         <Button
             android:layout_width="150dp"
             android:layout_height="wrap_content"

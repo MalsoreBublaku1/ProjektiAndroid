@@ -130,7 +130,7 @@ public class profile extends Fragment {
 
     }
 
-//
+//a
     private void saveUserInformation() {
 
         FirebaseUser user = mAuth.getCurrentUser();

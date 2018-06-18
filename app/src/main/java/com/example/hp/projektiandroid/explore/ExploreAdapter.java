@@ -1,6 +1,8 @@
 package com.example.hp.projektiandroid.explore;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hp.projektiandroid.R;
+import com.example.hp.projektiandroid.modeli_kryesor_2;
 import com.example.hp.projektiandroid.profileAdapter;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static android.support.v4.content.ContextCompat.startActivity;
 
 
 //adapteri i lidh te dhenat tona me recyclerView edhe e percakton ViewHolderin per ti shfaqur keto te dhena(renderin ma shpejt)
@@ -20,11 +25,10 @@ import java.util.ArrayList;
 
 
 public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageViewHolder> {
-    Context c;//
+     Context c;//
     ArrayList<ExploreModel> fotot_texti;//
 
     //private int[] images;//deklarimi i arrayt korrnspondues te fotove
-
     public ExploreAdapter(Context c, ArrayList<ExploreModel> fotot_texti)//konstruktori me ni parameter array
     {
         this.c = c;
@@ -36,6 +40,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
     //thirret kur krijohet Adaapteeri perodret per me inicializu ViewHolder qe perdoret per shfaqeje te te dhenave(per me bo render ma shpejt)
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //per me bo inflate album_layout
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.explore_item, parent, false);
         ImageViewHolder imageViewHolder = new ImageViewHolder(view);
 
@@ -45,10 +50,13 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
 
     @Override
     public void onBindViewHolder(ImageViewHolder holder, int position) {
+
+        final Context context;
 //kjo metode mundeson lidhjen e adapterit me viewHolderin. ketu pasohen te dhenat te ViewHolderi
         // int image_id=images[position];
         //holder.Album.setImageResource(image_id);
         //holder.AlbumTitle.setText("Image"+position);
+
         ExploreModel ft = fotot_texti.get(position);
        // holder.Album.setImageResource(ft.getImage());
         holder.AlbumTitle.setText(ft.getName());
@@ -56,6 +64,16 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
         holder.Cmimi.setText(ft.getCmimi());
         holder.noOfBeds.setText(ft.getNoOfBeds());
         Picasso.get().load(ft.getFotojaURL()).into(holder.Album);
+
+        holder.Album.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent("kryesor_2");
+                c.startActivity(i);
+            }
+        });
+
+
 
 
     }
@@ -78,6 +96,8 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
         TextView Cmimi;
         TextView noOfBeds;
 
+
+
         public ImageViewHolder(View itemView) {
             super(itemView);
             Album = itemView.findViewById(R.id.album);
@@ -87,7 +107,10 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
             noOfBeds=itemView.findViewById(R.id.noOfBeds);
 
 
+
         }
+
+
     }
 }
 

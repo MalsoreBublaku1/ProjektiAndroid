@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hp.projektiandroid.modeli_kryesor_2">
+
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/scrollView"
+        android:background="@android:color/white"
+        android:layout_height="500dp"></ScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/scrollView"
+        android:background="@color/ngjyraHeaderFooter"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/teksti"
+            android:layout_height="1dp"></LinearLayout>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="#e0482a"
+            android:text="Save"
+           android:layout_alignParentRight="true"
+            android:textColor="@android:color/white" />
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

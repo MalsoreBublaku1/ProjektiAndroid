@@ -31,11 +31,6 @@
     </string-array>
 
 
-
-
-
-
-
     <string-array name="noOfGuests">
         <item></item>
         <item>1</item>
@@ -53,15 +48,6 @@
     </string-array>
 
 
-
-
-
-
-
-
-
-
-
     <string-array name="location">
         <item></item>
         <item>Afghanistan</item>
@@ -77,25 +63,6 @@
 
 
     </string-array>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <string-array name="pyetja2">

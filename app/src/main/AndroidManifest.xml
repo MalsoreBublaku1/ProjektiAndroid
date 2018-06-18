@@ -62,6 +62,20 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".profileModel" />
         <activity android:name=".explore.ChooseActivity" />
+        <activity android:name=".modeli_kryesor_2">
+
+            <intent-filter>
+            <action android:name="kryesor_2" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+
+            </intent-filter>
+
+
+
+
+
+        </activity>
     </application>
 
 </manifest>

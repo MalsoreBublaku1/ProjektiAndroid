@@ -33,102 +33,64 @@ public class FragmentHome extends Fragment {
     static FragmentHomeBinding binding;
     static ExploreAdapter adapter;
     static Context c;
-    static ArrayList<ExploreModel> fotot_texti;
+    static ArrayList<ExploreModelid> fotot_texti;
+
+
     FirebaseDatabase FDB;
     DatabaseReference DBR;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.fragment_home, container, false);
+        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.fragment_home, container, false);//u thirr fragmenti home
         c = container.getContext();
-        FDB= FirebaseDatabase.getInstance();
-        DBR=FDB.getReference("TabelaExplore");
+        //per firebase
+        FDB = FirebaseDatabase.getInstance();
+        DBR = FDB.getReference("TabelaExplore");//per tabelen explore
 
-        fotot_texti=new ArrayList<>();
+        fotot_texti = new ArrayList<>();
+
+
         adapter = new ExploreAdapter(c, fotot_texti);
-        binding.homesRecycle.setLayoutManager(new GridLayoutManager(getContext(),2));
+
+        binding.homesRecycle.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
         Bundle bundle = this.getArguments();
+
         if (bundle != null) {
             System.out.println("Erdh inggoo");
             String guests = bundle.getString("guests", "0");
             String data = bundle.getString("dates", "nodata");
-            if(!guests.equals("0"))
-            {
+
+            if (!guests.equals("0")) {
                 getDataFirebaseGuests(guests);
-            }
-            else if(!data.equals("nodata"))
-            {
+            } else if (!data.equals("nodata")) {
                 getDataFirebaseDates(data);
             }
-            Toast.makeText(getContext(),"Erdh info guests"+guests+" data"+data,Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Erdh info guests" + guests + " data" + data, Toast.LENGTH_SHORT).show();
 
-        }
-        else
-        {
+        } else {
             System.out.println("Nuk eshte thirrur search");
             getDataFirebase();
         }
-
-
-
 
 
         return binding.getRoot();
     }
 
 
-    void getDataFirebase()
-    {
-
+    void getDataFirebase() {
 
 
         DBR.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                ExploreModel em=new ExploreModel();
-                em=dataSnapshot.getValue(ExploreModel.class);
-                fotot_texti.add(em);
+                ExploreModel em = new ExploreModel();
+                em = dataSnapshot.getValue(ExploreModel.class);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.isSaved);
+                fotot_texti.add(ex);
 
-                binding.homesRecycle.setAdapter(adapter);
-
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
-    void getDataFirebaseDates(final String date)
-    {
-
-        DBR.addChildEventListener(new ChildEventListener() {
-
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                ExploreModel em=new ExploreModel();
-                em=dataSnapshot.getValue(ExploreModel.class);
-                if(em.getDate().equals(date)){
-                    fotot_texti.add(em);}
 
                 binding.homesRecycle.setAdapter(adapter);
 
@@ -158,19 +120,66 @@ public class FragmentHome extends Fragment {
         });
     }
 
-    void getDataFirebaseGuests(final String numGuests)
-    {
 
+    //per data
+    void getDataFirebaseDates(final String date) {
+
+        DBR.addChildEventListener(new ChildEventListener() {
+
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                ExploreModel em = new ExploreModel();
+                em = dataSnapshot.getValue(ExploreModel.class);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.isSaved);
+
+                if (em.getDate().equals(date)) {
+                    fotot_texti.add(ex);
+                }
+                binding.homesRecycle.setAdapter(adapter);
+
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+    //per numofGuests
+
+    void getDataFirebaseGuests(final String numGuests) {
 
 
         DBR.addChildEventListener(new ChildEventListener() {
 
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                ExploreModel em=new ExploreModel();
-                em=dataSnapshot.getValue(ExploreModel.class);
-                if(em.getNoOfGuests().equals(numGuests)){
-                fotot_texti.add(em);}
+                ExploreModel em = new ExploreModel();
+                em = dataSnapshot.getValue(ExploreModel.class);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.isSaved);
+
+                if (em.getNoOfGuests().equals(numGuests)) {
+                    fotot_texti.add(ex);
+                }
 
                 binding.homesRecycle.setAdapter(adapter);
 

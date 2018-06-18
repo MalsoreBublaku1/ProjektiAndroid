@@ -1,8 +1,9 @@
 package com.example.hp.projektiandroid.explore;
 
 
+import java.io.Serializable;
 
-public class ExploreModel {
+public class ExploreModel implements Serializable {
     String noOfBeds;
     String name;
     String location;
@@ -11,13 +12,14 @@ public class ExploreModel {
     String noOfGuests;
     String date;
     String tipi;
+    Boolean isSaved;
 
 
     public ExploreModel(){
 
 
     }
-    public ExploreModel(String name, String location, String cmimi,String noOfBeds,String fotojaURL,String noOfGuests,String date,String tipi) {
+    public ExploreModel(String name, String location, String cmimi,String noOfBeds,String fotojaURL,String noOfGuests,String date,String tipi,Boolean isSaved) {
         this.name = name;
         //this.fotojaUrl=fotojaUrl;
         this.noOfBeds=noOfBeds;
@@ -26,7 +28,9 @@ public class ExploreModel {
         this.fotojaURL=fotojaURL;
         this.noOfGuests=noOfGuests;
         this.date=date;
+
         this.tipi=tipi;
+        this.isSaved=isSaved;
     }
 
     public String getDate() {

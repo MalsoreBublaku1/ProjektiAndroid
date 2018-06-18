@@ -40,6 +40,7 @@ public class FragmentExplore extends Fragment {
         binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.fragment_explore, container, false);
         FragmentHome fragmentHome=new FragmentHome();
         openFragment(fragmentHome);
+
         binding.btnGuests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

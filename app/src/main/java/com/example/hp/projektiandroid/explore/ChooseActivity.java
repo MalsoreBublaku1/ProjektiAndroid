@@ -44,6 +44,7 @@ public class ChooseActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton radioButton;
     Button btnNext1;
+    static String property_type="";
     static String noOfBeds = "";
     static String location = "";
     static String noOfGuests = "";
@@ -68,6 +69,7 @@ public class ChooseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         final Spinner spinner3;
         final Spinner spinner4;
+        final Spinner spinner1;
         final Spinner spinner5;
         final CalendarView calendarView;
         super.onCreate(savedInstanceState);
@@ -111,7 +113,14 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 // Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
-                String property_type = parent.getItemAtPosition(position).toString();
+
+
+                property_type = spinner1.getSelectedItem().toString();
+
+
+
+
+
 
 
             }
@@ -121,6 +130,8 @@ public class ChooseActivity extends AppCompatActivity {
 
             }
         });
+
+        property_type= spinner1.getSelectedItem().toString();
         //third spinner(drop down list)
         spinner2 = (Spinner) findViewById(R.id.spinner2);
         adapter2 = ArrayAdapter.createFromResource(this, R.array.guests, android.R.layout.simple_spinner_item);
@@ -230,8 +241,8 @@ public class ChooseActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 System.out.println("DATE IS" + dateis);
-
-                ExploreModel em = new ExploreModel("Malsore", "Kosova", "20euro", noOfBeds + " beds", url, noOfGuests, dateis);
+                //per me i rujt te dhenat e modelit ne databaze
+                ExploreModel em = new ExploreModel("Malsore", "Kosova", "20euro", noOfBeds + " beds", url, noOfGuests, dateis,property_type,false);
                 System.out.println("No of beds:" + noOfBeds);
                 ShtoTeDhenat(em);
             }
@@ -339,5 +350,8 @@ public class ChooseActivity extends AppCompatActivity {
 
 
         databaseReference.push().setValue(model);
+        String key =databaseReference.getKey();
+
+
     }
 }

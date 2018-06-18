@@ -26,10 +26,10 @@ import static android.support.v4.content.ContextCompat.startActivity;
 
 public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageViewHolder> {
      Context c;//
-    ArrayList<ExploreModel> fotot_texti;//
+    ArrayList<ExploreModelid> fotot_texti;//
 
     //private int[] images;//deklarimi i arrayt korrnspondues te fotove
-    public ExploreAdapter(Context c, ArrayList<ExploreModel> fotot_texti)//konstruktori me ni parameter array
+    public ExploreAdapter(Context c, ArrayList<ExploreModelid> fotot_texti)//konstruktori me ni parameter array
     {
         this.c = c;
         this.fotot_texti = fotot_texti;//asocimi i vlerave
@@ -57,24 +57,23 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
         //holder.Album.setImageResource(image_id);
         //holder.AlbumTitle.setText("Image"+position);
 
-        ExploreModel ft = fotot_texti.get(position);
+        final ExploreModelid ft = fotot_texti.get(position);
        // holder.Album.setImageResource(ft.getImage());
         holder.AlbumTitle.setText(ft.getName());
         holder.Location.setText(ft.getLocation());
         holder.Cmimi.setText(ft.getCmimi());
         holder.noOfBeds.setText(ft.getNoOfBeds());
         Picasso.get().load(ft.getFotojaURL()).into(holder.Album);
-        holder.tipi.setText(ft.getTipi());
-
-
-
 
 
         holder.Album.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i=new Intent("kryesor_2");
+                i.putExtra("MyClass", ft);//key-klasa
                 c.startActivity(i);
+
+
             }
         });
 

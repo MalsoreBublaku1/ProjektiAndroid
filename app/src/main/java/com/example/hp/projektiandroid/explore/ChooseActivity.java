@@ -40,7 +40,7 @@ import java.util.UUID;
 
 public class ChooseActivity extends AppCompatActivity {
     Spinner spinner, spinner1, spinner2;
-    ArrayAdapter<CharSequence> adapter, adapter1, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7;
+    ArrayAdapter<CharSequence> adapter, adapter1, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapterCmimi;
     RadioGroup radioGroup;
     RadioButton radioButton;
     Button btnNext1;
@@ -48,6 +48,7 @@ public class ChooseActivity extends AppCompatActivity {
     static String noOfBeds = "";
     static String location = "";
     static String noOfGuests = "";
+    static  String cmimi="";
     static Context c;
     static String url = "";
     static String dateis = "";
@@ -71,6 +72,8 @@ public class ChooseActivity extends AppCompatActivity {
         final Spinner spinner4;
         final Spinner spinner1;
         final Spinner spinner5;
+        final Spinner spinnerCmimi;
+
         final CalendarView calendarView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
@@ -95,7 +98,7 @@ public class ChooseActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+" selected",Toast.LENGTH_LONG).show();
                 String homes_restaurants = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getBaseContext(), "HR=" + homes_restaurants, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getBaseContext(), "HR=" + homes_restaurants, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -132,6 +135,8 @@ public class ChooseActivity extends AppCompatActivity {
         });
 
         property_type= spinner1.getSelectedItem().toString();
+
+
         //third spinner(drop down list)
         spinner2 = (Spinner) findViewById(R.id.spinner2);
         adapter2 = ArrayAdapter.createFromResource(this, R.array.guests, android.R.layout.simple_spinner_item);
@@ -143,7 +148,7 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String guests_have = parent.getItemAtPosition(position).toString();
-                Toast.makeText(getBaseContext(), guests_have, Toast.LENGTH_LONG).show();
+               // Toast.makeText(getBaseContext(), guests_have, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -153,9 +158,17 @@ public class ChooseActivity extends AppCompatActivity {
         });
 
 
+        //spinner cmimi
+
+
+
+
+
+
+
         //spinner5- per lokacion
 
-        spinner5 = (Spinner) findViewById(R.id.spinnerLocation);
+        spinner5 = (Spinner) findViewById(R.id.spinnerLocation);//marrja e te dhenave per location
         adapter5 = ArrayAdapter.createFromResource(this, R.array.location, android.R.layout.simple_spinner_item);
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner5.setAdapter(adapter5);
@@ -177,7 +190,34 @@ public class ChooseActivity extends AppCompatActivity {
 
         location = spinner5.getSelectedItem().toString();
 
-        System.out.println("Lokacioni:" + location);
+
+
+
+
+
+        spinnerCmimi = (Spinner) findViewById(R.id.spinnerCmimi);//marrja e te dhenave per location
+        adapterCmimi = ArrayAdapter.createFromResource(this, R.array.cmimi, android.R.layout.simple_spinner_item);
+        adapterCmimi.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCmimi.setAdapter(adapterCmimi);
+
+
+        spinnerCmimi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                cmimi = spinnerCmimi.getSelectedItem().toString();
+                Toast.makeText(getBaseContext(), cmimi, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        cmimi = spinnerCmimi.getSelectedItem().toString();
+
+
         //--------------------------------------------------
 
 
@@ -236,17 +276,31 @@ public class ChooseActivity extends AppCompatActivity {
 
 //ketu shtohetn te dhenat ne databaze
         System.out.println("No of Beds ne 1 " + noOfBeds);
+
         btnNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                System.out.println("DATE IS" + dateis);
-                //per me i rujt te dhenat e modelit ne databaze
-                ExploreModel em = new ExploreModel("Malsore", "Kosova", "20euro", noOfBeds + " beds", url, noOfGuests, dateis,property_type,false);
+                System.out.println("DATE IS" + dateis);//check the date
+                //per me i rujt te dhenat e modelit ne databaze edhe me i shfaq ne explore_item
+                ExploreModel em = new ExploreModel("Malsore", location, cmimi, noOfBeds + " beds", url, noOfGuests, dateis,property_type,false);
                 System.out.println("No of beds:" + noOfBeds);
                 ShtoTeDhenat(em);
             }
         });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         //Firebase innit
@@ -273,7 +327,7 @@ public class ChooseActivity extends AppCompatActivity {
         });
     }
 
-    //
+    //per uploadte Images
     private void uploadImage() {
         if (filePath != null) {
             final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -350,7 +404,7 @@ public class ChooseActivity extends AppCompatActivity {
 
 
         databaseReference.push().setValue(model);
-        String key =databaseReference.getKey();
+        String key =databaseReference.getKey();//celsi
 
 
     }

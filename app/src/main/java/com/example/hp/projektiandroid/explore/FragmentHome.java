@@ -60,6 +60,8 @@ public class FragmentHome extends Fragment {
             String guests = bundle.getString("guests", "0");
             String data = bundle.getString("dates", "nodata");
             String search = bundle.getString("search", "nosearch");
+
+
             if (!guests.equals("0")) {
                 getDataFirebaseGuests(guests);
             } else if (!data.equals("nodata")) {
@@ -176,7 +178,8 @@ public class FragmentHome extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
                 em = dataSnapshot.getValue(ExploreModel.class);
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.isSaved);
+                //qeto te dhena fillimisht shtohen ne db
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.getSaved());
 
                 if (em.getNoOfGuests().equals(numGuests)) {
                     fotot_texti.add(ex);

@@ -6,6 +6,8 @@ import java.io.Serializable;
  * Created by HP on 6/18/2018.
  */
 
+//qekjo bohet per me mundesu me marr ID-ne
+
 public class ExploreModelid implements Serializable{
     String id;
     String noOfBeds;
@@ -38,6 +40,10 @@ public class ExploreModelid implements Serializable{
     public String getName() {
         return name;
     }
+
+
+
+
 
     public void setName(String name) {
         this.name = name;

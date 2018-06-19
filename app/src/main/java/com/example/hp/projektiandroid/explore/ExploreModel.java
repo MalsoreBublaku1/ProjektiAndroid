@@ -2,7 +2,7 @@ package com.example.hp.projektiandroid.explore;
 
 
 import java.io.Serializable;
-
+//qetu veq merren te dhenat
 public class ExploreModel implements Serializable {
     String noOfBeds;
     String name;
@@ -26,11 +26,11 @@ public class ExploreModel implements Serializable {
         this.cmimi = cmimi;
     }
 
-    public Boolean getSaved() {
+    public Boolean getSaved1() {
         return isSaved;
     }
 
-    public void setSaved(Boolean saved) {
+    public void setSaved1(Boolean saved) {
         isSaved = saved;
     }
 
@@ -54,6 +54,15 @@ public class ExploreModel implements Serializable {
 
     public String getDate() {
         return date;
+    }
+
+
+    public Boolean getSaved() {
+        return isSaved;
+    }
+
+    public void setSaved(Boolean saved) {
+        isSaved = saved;
     }
 
     public void setDate(String date) {

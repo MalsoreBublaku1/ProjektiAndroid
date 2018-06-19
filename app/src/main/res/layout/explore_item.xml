@@ -14,6 +14,7 @@
     </data>
 
     <LinearLayout
+        android:background="@drawable/fotot_border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -53,17 +54,22 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="cmimi :" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:text="price/night "
+                android:textColor="#3a0707"
+                android:layout_height="wrap_content" />
+            <TextView
                 android:id="@+id/cmimi"
+                android:textColor="#3a0707"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{ExploreItem.cmimi}"
-                android:textStyle="normal" />
+                android:textStyle="bold" />
+
+
         </LinearLayout>
 
         <LinearLayout

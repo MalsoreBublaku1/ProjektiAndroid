@@ -4,20 +4,26 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
+import android.opengl.ETC1;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hp.projektiandroid.R;
@@ -44,6 +50,7 @@ public class ChooseActivity extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton radioButton;
     Button btnNext1;
+     static String description="";
     static String property_type="";
     static String noOfBeds = "";
     static String location = "";
@@ -73,6 +80,7 @@ public class ChooseActivity extends AppCompatActivity {
         final Spinner spinner1;
         final Spinner spinner5;
         final Spinner spinnerCmimi;
+        final EditText etDesc;
 
         final CalendarView calendarView;
         super.onCreate(savedInstanceState);
@@ -81,6 +89,31 @@ public class ChooseActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
 
         calendarView = findViewById(R.id.calendar);
+        etDesc=findViewById(R.id.description);
+       // etDesc.getText().toString();//me marr pershkrimin
+
+
+
+        etDesc.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus)
+                {
+                    etDesc.setTextColor(Color.rgb(135, 128, 128));
+
+                }
+                else
+                {
+                     description=etDesc.getText().toString();
+                    System.out.println("OK2:"+description);
+
+                }
+
+            }
+        });
+
+        description=etDesc.getText().toString();
+        System.out.println("descp"+description);
 
 
         btnNext1 = (Button) findViewById(R.id.btnNext);
@@ -277,13 +310,14 @@ public class ChooseActivity extends AppCompatActivity {
 //ketu shtohetn te dhenat ne databaze
         System.out.println("No of Beds ne 1 " + noOfBeds);
 
+
         btnNext1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 System.out.println("DATE IS" + dateis);//check the date
                 //per me i rujt te dhenat e modelit ne databaze edhe me i shfaq ne explore_item
-                ExploreModel em = new ExploreModel("Malsore", location, cmimi, noOfBeds + " beds", url, noOfGuests, dateis,property_type,false);
+                ExploreModel em = new ExploreModel(description, location, cmimi, noOfBeds + " beds", url, noOfGuests, dateis,property_type,false);
                 System.out.println("No of beds:" + noOfBeds);
                 ShtoTeDhenat(em);
             }

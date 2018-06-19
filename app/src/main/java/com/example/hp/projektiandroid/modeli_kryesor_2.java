@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,8 +17,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class modeli_kryesor_2 extends AppCompatActivity {
     TextView tipi;
+    CalendarView clnV;
     FirebaseDatabase db;
     DatabaseReference dataref;
     ExploreModelid ft;
@@ -52,6 +58,38 @@ public class modeli_kryesor_2 extends AppCompatActivity {
         guests.setText(ft.getNoOfGuests());
         beds=findViewById(R.id.numriBeds);
         beds.setText(ft.getNoOfBeds());
+        clnV=findViewById(R.id.calendar1);
+        System.out.println("Data"+ft.getDate());
+        String konvertoDaten=ft.getDate();
+
+
+
+        String[] dateArray = konvertoDaten.split("/");
+
+        int day = Integer.parseInt(dateArray[0]);
+        int month = Integer.parseInt(dateArray[1]);
+        int year = Integer.parseInt(dateArray[2]);
+
+       //clnV.setDate()
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DAY_OF_MONTH, day);
+
+        long milliTime = calendar.getTimeInMillis();
+        clnV.setDate (milliTime, true, true);
+
+
+
+
+
+
+
+
+
+        //clnV.setDate(ft.getDate());
 
 
 

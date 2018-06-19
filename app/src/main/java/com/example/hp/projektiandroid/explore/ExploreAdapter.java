@@ -40,7 +40,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
     //thirret kur krijohet Adaapteeri perodret per me inicializu ViewHolder qe perdoret per shfaqeje te te dhenave(per me bo render ma shpejt)
     public ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //per me bo inflate album_layout
-
+        //lidhja me explore_item
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.explore_item, parent, false);
         ImageViewHolder imageViewHolder = new ImageViewHolder(view);
 
@@ -70,6 +70,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
             @Override
             public void onClick(View v) {
                 Intent i=new Intent("kryesor_2");
+                //per me pasu te dhena, myClass veq e identifikon
                 i.putExtra("MyClass", ft);//key-klasa
                 c.startActivity(i);
 

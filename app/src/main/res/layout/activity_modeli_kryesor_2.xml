@@ -16,20 +16,24 @@
 
        <RelativeLayout
            android:layout_width="match_parent"
+
            android:background="@color/ngjyraHeaderFooter"
            android:layout_height="match_parent">
 
            <RelativeLayout
+               android:layout_margin="4dp"
                android:layout_width="match_parent"
                android:layout_height="200dp"
+               android:background="@drawable/bg_calendar"
                android:id="@+id/fotoja">
 
                <ImageView
+                   android:id="@+id/imgV1"
                    android:layout_centerHorizontal="true"
                    android:layout_centerVertical="true"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:background="@mipmap/porta33"
+
                    />
 
 
@@ -53,6 +57,7 @@
 
                <TextView
                    android:id="@+id/tipi"
+                   android:layout_margin="5dp"
                    android:layout_width="wrap_content"
                    android:textColor="#842815"
                    android:textStyle="bold"
@@ -102,7 +107,7 @@
                    <TextView
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:text="3"
+
                        android:id="@+id/numriGuests"
                        android:layout_marginBottom="4dp"
                        android:textSize="20dp"
@@ -148,7 +153,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4"
                 android:id="@+id/numriBeds"
                 android:textSize="20dp"
                 android:textColor="#1c1a1a"
@@ -158,7 +162,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="beds"
+
                 android:textSize="20dp"
                 android:textColor="#1c1a1a"
                 android:layout_marginLeft="50dp"/>
@@ -239,7 +243,7 @@
                        android:text="bathrooms"
                        android:textSize="20dp"
                        android:textColor="#1c1a1a"
-                       android:layout_marginLeft="50dp"/>
+                       android:layout_marginLeft="47dp"/>
                </RelativeLayout>
 
 
@@ -359,17 +363,20 @@
             android:layout_height="1dp"></LinearLayout>
 
         <TextView
+            android:id="@+id/cmimi1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=" $300"
-            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:text="10$"
             android:textColor="#1c1a1a"
             android:textSize="20dp"
-            android:id="@+id/cmimi1"
-            android:layout_centerVertical="true"
-            />
+            android:textStyle="bold" />
+
+
         <TextView
             android:layout_width="wrap_content"
+            android:layout_marginLeft="7dp"
             android:layout_height="wrap_content"
             android:text=" per night"
             android:textColor="#1c1a1a"

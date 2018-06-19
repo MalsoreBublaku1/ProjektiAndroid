@@ -5,7 +5,7 @@ package com.example.hp.projektiandroid.explore;
  */
 
 public class RuajTeDhenat {
-
+//per me i rujt te dhenat te tabela users ne firebase
 
     String firstName, lastName, email, pass;
 

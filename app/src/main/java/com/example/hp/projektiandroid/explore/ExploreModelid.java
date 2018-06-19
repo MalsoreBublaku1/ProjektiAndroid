@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 public class ExploreModelid implements Serializable{
     String id;
+    //e ka edhe idn per me bo save
     String noOfBeds;
     String name;
     String location;

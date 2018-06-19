@@ -71,7 +71,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
             public void onClick(View v) {
                 Intent i=new Intent("kryesor_2");
                 //per me pasu te dhena, myClass veq e identifikon
-                i.putExtra("MyClass", ft);//key-klasa
+                i.putExtra("MyClass", ft);//key-klasa, me ft MODELIID paramteri
                 c.startActivity(i);
 
 
@@ -113,7 +113,7 @@ public class ExploreAdapter extends RecyclerView.Adapter<ExploreAdapter.ImageVie
             Cmimi = itemView.findViewById(R.id.cmimi);
             noOfBeds=itemView.findViewById(R.id.noOfBeds);
 
-            tipi=itemView.findViewById(R.id.tipi);
+            tipi=itemView.findViewById(R.id.tipi);//nuk na vyn ketu
 
 
 

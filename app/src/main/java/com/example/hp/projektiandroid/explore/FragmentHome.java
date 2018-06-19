@@ -48,29 +48,30 @@ public class FragmentHome extends Fragment {
 
         fotot_texti = new ArrayList<>();
 
-
         adapter = new ExploreAdapter(c, fotot_texti);
 
         binding.homesRecycle.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         Bundle bundle = this.getArguments();
-
+//pranimi i te gjithe bundles
         if (bundle != null) {
-            System.out.println("Erdh inggoo");
-            String guests = bundle.getString("guests", "0");
-            String data = bundle.getString("dates", "nodata");
-            String search = bundle.getString("search", "nosearch");
+            System.out.println("Erdhi bundle");
+            String guests = bundle.getString("guests", "0");//pranimi i bundles per guest
+            String data = bundle.getString("dates", "nodata");//pranimi i bundle per dates
+            String search = bundle.getString("search", "nosearch");//pranimi i bundle per search
 
 
             if (!guests.equals("0")) {
-                getDataFirebaseGuests(guests);
+                getDataFirebaseGuests(guests);//merre numrin e guests
             } else if (!data.equals("nodata")) {
                 getDataFirebaseDates(data);
             } else if (!search.equals("nosearch")) {
-                System.out.println("U thirr search");
+                //System.out.println("U thirr search");
                 getDataFirebaseSearch(search);
             }
-            Toast.makeText(getContext(), "Erdh info guests" + guests + " data" + data+ "search "+search, Toast.LENGTH_SHORT).show();
+          //
+            //
+            //Toast.makeText(getContext(), "Erdh info guests" + guests + " data" + data+ "search "+search, Toast.LENGTH_SHORT).show();
 
         } else {
             System.out.println("Nuk eshte thirrur search");
@@ -167,7 +168,7 @@ public class FragmentHome extends Fragment {
     }
 
 
-    //per numofGuests
+//-----------------------------------------------PARAQITJA E FRAGMENT HOME ME NUMB OF GUESTS TE KERKUARA---------------------------
 
     void getDataFirebaseGuests(final String numGuests) {
 
@@ -177,6 +178,7 @@ public class FragmentHome extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
+                //i marrim qeto t dhena prej explore modelit
                 em = dataSnapshot.getValue(ExploreModel.class);
                 //qeto te dhena fillimisht shtohen ne db
                 ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.getSaved());
@@ -212,6 +214,8 @@ public class FragmentHome extends Fragment {
             }
         });
     }
+
+    //----------------per paraqitjen e itemave qe e plotesojne kushtin e searchit----------------------------
 
     void getDataFirebaseSearch(final String search) {
 

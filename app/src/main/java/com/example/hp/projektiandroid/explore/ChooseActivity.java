@@ -27,6 +27,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.hp.projektiandroid.Kryesore;
 import com.example.hp.projektiandroid.R;
 import com.example.hp.projektiandroid.explore.ExploreModel;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -120,7 +121,7 @@ public class ChooseActivity extends AppCompatActivity {
 
 
         btnNext1 = (Button) findViewById(R.id.btnNext);
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("TabelaExplore");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("TabelaExplore");//me tregu qe eshte fjala per TableExplore
 
 
         adapter = ArrayAdapter.createFromResource(this, R.array.homes, android.R.layout.simple_spinner_item);
@@ -361,13 +362,13 @@ public class ChooseActivity extends AppCompatActivity {
         });
 
         nights = spinner12.getSelectedItem().toString();
-
+        //per me marr daten e selektuar
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override
             public void onSelectedDayChange(CalendarView arg0, int year, int month,
                                             int date) {
-                int month1=month+1;
+                int month1=month+1;//se po na qet gjithe 1 muj ma mbrapa
                 dateis = date + "/" + month1 + "/" + year;
                 System.out.println("Data selected is"+dateis);
             }
@@ -375,7 +376,7 @@ public class ChooseActivity extends AppCompatActivity {
 
 //ketu shtohetn te dhenat ne databaze
         System.out.println("No of Beds ne 1 " + noOfBeds);
-
+//kur te klikohet butoni NEXT qe osht save ne UI shtohen keto te dhena
 
         btnNext1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -383,11 +384,12 @@ public class ChooseActivity extends AppCompatActivity {
 
                 System.out.println("DATE IS" + dateis);//check the date
                 //per me i rujt te dhenat e modelit ne databaze edhe me i shfaq ne explore_item
+
                 ExploreModel em = new ExploreModel(description, location, cmimi, noOfBeds + " beds", url, noOfGuests, dateis,property_type,noOfBedR,noOfBathR, nights,false);
-                System.out.println("No of beds:" + noOfBeds);
+                //System.out.println("No of beds:" + noOfBeds);
                 ShtoTeDhenat(em);
-              //  Intent i=new Intent(this,FragmentExplore.class);
-                //startActivity(i);
+                Intent i=new Intent("kryesore-filter");
+                startActivity(i);
 
             }
         });

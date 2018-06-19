@@ -41,9 +41,10 @@ public class FragmentExplore extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.fragment_explore, container, false);
+        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.fragment_explore, container, false);//hapet explore
         FragmentHome fragmentHome = new FragmentHome();
-        openFragment(fragmentHome);
+        openFragment(fragmentHome);//hapet fragmenti Home
+        //per search
         binding.etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -55,8 +56,9 @@ public class FragmentExplore extends Fragment {
                 if (!s.equals("") && !s.equals(null)) {
                     FragmentHome fragmentHome = new FragmentHome();
                     Bundle bundle = new Bundle();
-                    String search_word = s.toString();
-                    bundle.putString("search", search_word);
+                    String search_word = s.toString();//e marrim fjalen e shkuruar ne search
+
+                    bundle.putString("search", search_word);//dergohet me key-search
                     fragmentHome.setArguments(bundle);
                     openFragment(fragmentHome);
                 }
@@ -77,7 +79,7 @@ public class FragmentExplore extends Fragment {
         binding.btnGuests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDialog(getContext());
+                openDialog(getContext());//hapet dialogu per me i marr numrin e guests
             }
         });
 
@@ -85,21 +87,21 @@ public class FragmentExplore extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment fragment = new FragmentHome();
-                openFragment(fragment);
+                openFragment(fragment);//per homes
             }
         });
         binding.secondPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Fragment fragment = new FragmentRestaurant();
-                openFragment(fragment);
+                openFragment(fragment);//per restaurents
 
             }
         });
         binding.btnDates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openDialogDates(getContext());
+                openDialogDates(getContext());//per me e  marr daten qe po dojna me search
             }
 
         });
@@ -109,12 +111,16 @@ public class FragmentExplore extends Fragment {
     }
 
 
+
+
+//per hapjen e te gjitha fragmenteve
     private void openFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.mainContainer, fragment);
         fragmentTransaction.commit();
     }
 
+    //-----------------------GUESTS DIALOGU------------------------------
     private void openDialog(Context context) {
         final Dialog dialog = new Dialog(context);
         dialog.setContentView(R.layout.activity_dialog_guest);
@@ -126,8 +132,8 @@ public class FragmentExplore extends Fragment {
         sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                noOfGuests = sp.getSelectedItem().toString();
-                Toast.makeText(getContext(), noOfGuests, Toast.LENGTH_LONG).show();
+                noOfGuests = sp.getSelectedItem().toString();//me marr numrin e guests
+             //   Toast.makeText(getContext(), noOfGuests, Toast.LENGTH_LONG).show();
 
             }
 
@@ -137,20 +143,22 @@ public class FragmentExplore extends Fragment {
             }
         });
         noOfGuests = sp.getSelectedItem().toString();
+        //kur butoni te klikohet dergojna bundle te fragmenti Homes me key guests edhe parameter noOf guests
         Button btn = dialog.findViewById(R.id.searchbtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Number of gustes" + noOfGuests);
+               // System.out.println("Number of gustes" + noOfGuests);
                 FragmentHome fragment = new FragmentHome();
                 Bundle bundle = new Bundle();
-                bundle.putString("guests", noOfGuests);
+                bundle.putString("guests", noOfGuests);//me dergu bundle me key  guests
                 fragment.setArguments(bundle);
                 openFragment(fragment);
                 dialog.dismiss();
 
             }
         });
+
 
         noOfGuests = sp.getSelectedItem().toString();
 
@@ -160,6 +168,11 @@ public class FragmentExplore extends Fragment {
 
 
     }
+    //-----------------------------------GUESTS----------------------------------------------
+
+
+
+
 
     private void openDialogDates(Context context) {
         final Dialog dialog = new Dialog(context);
@@ -176,6 +189,7 @@ public class FragmentExplore extends Fragment {
                 System.out.println("Te dialogu data" + dateis);
             }
         });
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

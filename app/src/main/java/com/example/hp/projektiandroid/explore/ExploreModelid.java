@@ -1,10 +1,8 @@
 package com.example.hp.projektiandroid.explore;
 
-import java.io.Serializable;
+import android.content.Intent;
 
-/**
- * Created by HP on 6/18/2018.
- */
+import java.io.Serializable;
 
 //qekjo bohet per me mundesu me marr ID-ne
 
@@ -19,6 +17,9 @@ public class ExploreModelid implements Serializable{
     String date;
     String tipi;
     Boolean isSaved;
+    String noOfBedR;
+    String noOfBathR;
+    String nights;
 
 
     public String getId() {
@@ -105,7 +106,31 @@ public class ExploreModelid implements Serializable{
         isSaved = saved;
     }
 
-    public ExploreModelid(String id, String noOfBeds, String name, String location, String cmimi, String fotojaURL, String noOfGuests, String date, String tipi, Boolean isSaved) {
+    public String getNoOfBedR() {
+        return noOfBedR;
+    }
+
+    public void setNoOfBedR(String noOfBedR) {
+        this.noOfBedR = noOfBedR;
+    }
+
+    public String getNoOfBathR() {
+        return noOfBathR;
+    }
+
+    public void setNoOfBathR(String noOfBathR) {
+        this.noOfBathR = noOfBathR;
+    }
+
+    public String getNights() {
+        return nights;
+    }
+
+    public void setNights(String nights) {
+        this.nights = nights;
+    }
+
+    public ExploreModelid(String id, String noOfBeds, String name, String location, String cmimi, String fotojaURL, String noOfGuests, String date, String tipi, String noOfBedR, String noOfBathR, String nights, Boolean isSaved) {
         this.id = id;
         this.noOfBeds = noOfBeds;
         this.name = name;
@@ -116,5 +141,10 @@ public class ExploreModelid implements Serializable{
         this.date = date;
         this.tipi = tipi;
         this.isSaved = isSaved;
+        this.noOfBedR = noOfBedR;
+        this.noOfBathR = noOfBathR;
+        this.nights = nights;
     }
+
+
 }

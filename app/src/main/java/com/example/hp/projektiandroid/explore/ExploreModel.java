@@ -13,6 +13,9 @@ public class ExploreModel implements Serializable {
     String date;
     String tipi;
     Boolean isSaved;
+    String noOfBedR;
+    String noOfBathR;
+    String nights;
 
     public void setName(String name) {
         this.name = name;
@@ -38,7 +41,7 @@ public class ExploreModel implements Serializable {
 
 
     }
-    public ExploreModel(String name, String location, String cmimi,String noOfBeds,String fotojaURL,String noOfGuests,String date,String tipi,Boolean isSaved) {
+    public ExploreModel(String name, String location, String cmimi ,String noOfBeds, String fotojaURL, String noOfGuests,String date,String tipi,String noOfBedR, String noOfBathR, String nights, Boolean isSaved) {
         this.name = name;
         //this.fotojaUrl=fotojaUrl;
         this.noOfBeds=noOfBeds;
@@ -50,6 +53,9 @@ public class ExploreModel implements Serializable {
 
         this.tipi=tipi;
         this.isSaved=isSaved;
+        this.noOfBedR = noOfBedR;
+        this.noOfBathR = noOfBathR;
+        this.nights = nights;
     }
 
     public String getDate() {
@@ -114,6 +120,30 @@ public class ExploreModel implements Serializable {
 
     public void setTipi(String tipi) {
         this.tipi = tipi;
+    }
+
+    public String getNoOfBedR() {
+        return noOfBedR;
+    }
+
+    public void setNoOfBedR(String noOfBedR) {
+        this.noOfBedR = noOfBedR;
+    }
+
+    public String getNoOfBathR() {
+        return noOfBathR;
+    }
+
+    public void setNoOfBathR(String noOfBathR) {
+        this.noOfBathR = noOfBathR;
+    }
+
+    public String getNights() {
+        return nights;
+    }
+
+    public void setNights(String nights) {
+        this.nights = nights;
     }
 }
 

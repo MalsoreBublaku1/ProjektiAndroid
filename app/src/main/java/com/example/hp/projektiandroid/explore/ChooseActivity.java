@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.opengl.ETC1;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -45,10 +46,9 @@ import java.util.UUID;
 
 
 public class ChooseActivity extends AppCompatActivity {
-    Spinner spinner, spinner1, spinner2;
-    ArrayAdapter<CharSequence> adapter, adapter1, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapterCmimi;
-    RadioGroup radioGroup;
-    RadioButton radioButton;
+    Spinner spinner, spinner1, spinner2,spinner8,spinner10,spinner12;
+    ArrayAdapter<CharSequence> adapter, adapter1, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapterCmimi ,adapter8,adapter10, adapter12;
+
     Button btnNext1;
      static String description="";
     static String property_type="";
@@ -59,6 +59,9 @@ public class ChooseActivity extends AppCompatActivity {
     static Context c;
     static String url = "";
     static String dateis = "";
+    static String noOfBedR = "";
+    static String noOfBathR = "";
+    static String nights = "";
     DatabaseReference databaseReference;
     // static String location;
 
@@ -211,7 +214,7 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 location = spinner5.getSelectedItem().toString();
-                Toast.makeText(getBaseContext(), location, Toast.LENGTH_LONG).show();
+               // Toast.makeText(getBaseContext(), location, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -238,7 +241,7 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 cmimi = spinnerCmimi.getSelectedItem().toString();
-                Toast.makeText(getBaseContext(), cmimi, Toast.LENGTH_LONG).show();
+               // Toast.makeText(getBaseContext(), cmimi, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -254,6 +257,29 @@ public class ChooseActivity extends AppCompatActivity {
         //--------------------------------------------------
 
 
+
+        spinner8 = (Spinner) findViewById(R.id.spinner8);
+        adapter8 = ArrayAdapter.createFromResource(this, R.array.noOfBedR, android.R.layout.simple_spinner_item);
+        adapter8.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner8.setAdapter(adapter8);
+
+        spinner8.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                noOfBedR = spinner8.getSelectedItem().toString();
+               // Toast.makeText(getBaseContext(), noOfBedR, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        noOfBedR = spinner8.getSelectedItem().toString();
+        System.out.println("numri i shtreterve:" + noOfBedR);
+
+
         spinner3 = (Spinner) findViewById(R.id.spinner3);
         adapter3 = ArrayAdapter.createFromResource(this, R.array.noOfBeds, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -263,7 +289,7 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 noOfBeds = spinner3.getSelectedItem().toString();
-                Toast.makeText(getBaseContext(), noOfBeds, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getBaseContext(), noOfBeds, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -285,7 +311,7 @@ public class ChooseActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 noOfGuests = spinner4.getSelectedItem().toString();
-                Toast.makeText(getBaseContext(), noOfGuests, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getBaseContext(), noOfGuests, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -295,6 +321,46 @@ public class ChooseActivity extends AppCompatActivity {
         });
 
         noOfGuests = spinner4.getSelectedItem().toString();
+
+        spinner10 = (Spinner) findViewById(R.id.spinner10);
+        adapter10 = ArrayAdapter.createFromResource(this, R.array.noOfGuests, android.R.layout.simple_spinner_item);
+        adapter10.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner10.setAdapter(adapter10);
+
+        spinner10.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                noOfBathR = spinner10.getSelectedItem().toString();
+                //Toast.makeText(getBaseContext(), noOfBathR, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        noOfBathR = spinner10.getSelectedItem().toString();
+
+        spinner12 = (Spinner) findViewById(R.id.spinner12);
+        adapter12 = ArrayAdapter.createFromResource(this, R.array.nights, android.R.layout.simple_spinner_item);
+        adapter12.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner12.setAdapter(adapter12);
+
+        spinner12.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                nights = spinner12.getSelectedItem().toString();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        nights = spinner12.getSelectedItem().toString();
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
@@ -317,9 +383,12 @@ public class ChooseActivity extends AppCompatActivity {
 
                 System.out.println("DATE IS" + dateis);//check the date
                 //per me i rujt te dhenat e modelit ne databaze edhe me i shfaq ne explore_item
-                ExploreModel em = new ExploreModel(description, location, cmimi, noOfBeds + " beds", url, noOfGuests, dateis,property_type,false);
+                ExploreModel em = new ExploreModel(description, location, cmimi, noOfBeds + " beds", url, noOfGuests, dateis,property_type,noOfBedR,noOfBathR, nights,false);
                 System.out.println("No of beds:" + noOfBeds);
                 ShtoTeDhenat(em);
+              //  Intent i=new Intent(this,FragmentExplore.class);
+                //startActivity(i);
+
             }
         });
 
@@ -425,13 +494,7 @@ public class ChooseActivity extends AppCompatActivity {
 
     }
 
-    public void checkedButton(View v) {
-        radioGroup = (RadioGroup) findViewById(R.id.radioG);
-        int radioID = radioGroup.getCheckedRadioButtonId();
-        radioButton = findViewById(radioID);
 
-        //Toast.makeText(this,"Selected radio button:"+ radioButton,Toast.LENGTH_LONG).show();
-    }
 
 
     public void ShtoTeDhenat(ExploreModel model) {

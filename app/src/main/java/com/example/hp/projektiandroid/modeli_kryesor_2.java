@@ -34,6 +34,9 @@ public class modeli_kryesor_2 extends AppCompatActivity {
     TextView cmimi;
     TextView guests;
     TextView beds;
+    TextView bedR;
+    TextView bathR;
+    TextView nights;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,12 @@ public class modeli_kryesor_2 extends AppCompatActivity {
         beds=findViewById(R.id.numriBeds);
         beds.setText(ft.getNoOfBeds());
         clnV=findViewById(R.id.calendar1);
+        bedR = findViewById(R.id.numriBedrooms);
+        bedR.setText(ft.getNoOfBedR());
+        bathR = findViewById(R.id.nrBathrooms);
+        bathR.setText(ft.getNoOfBathR());
+        nights = findViewById(R.id.nightMin);
+        nights.setText(ft.getNights());
         System.out.println("Data"+ft.getDate());
         String konvertoDaten=ft.getDate();
 

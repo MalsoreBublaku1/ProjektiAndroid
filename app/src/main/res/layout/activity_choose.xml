@@ -63,16 +63,6 @@
                     android:layout_marginTop="5dp"></Spinner>
 
 
-
-
-
-
-
-
-
-
-
-
                 <View
                     android:id="@+id/vija1"
                     android:layout_width="match_parent"
@@ -102,40 +92,6 @@
                     android:layout_marginTop="5dp"></Spinner>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <View
                     android:id="@+id/vija2"
                     android:layout_width="match_parent"
@@ -145,17 +101,6 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@android:color/darker_gray" />
-
-
-
-
-
-
-
-
-
-
-
 
 
                 <TextView
@@ -192,39 +137,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
-                    android:text="Is this set up as a dedicated guest space?"
+                    android:text="How many bedrooms would you like?"
                     android:textColor="#000000"
                     android:textSize="20dp" />
 
-                <RelativeLayout
-                    android:id="@+id/rl1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <RadioGroup
-                        android:id="@+id/radioG"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/buton1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:onClick="checkedButton"
-                            android:text="Yes, it's primarly set up for guests." />
-
-                        <RadioButton
-                            android:id="@+id/buton2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="15dp"
-                            android:onClick="checkedButton"
-                            android:text="No, I keep my personal belongings here." />
-                    </RadioGroup>
-
-
-                </RelativeLayout>
+                <Spinner
+                    android:id="@+id/spinner8"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"></Spinner>
 
 
                 <View
@@ -234,6 +157,8 @@
                     android:layout_below="@+id/rl1"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+
                     android:background="@android:color/darker_gray" />
 
 
@@ -263,6 +188,7 @@
                     android:layout_below="@+id/spinner3"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
                     android:background="@android:color/darker_gray" />
 
 
@@ -290,9 +216,69 @@
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_below="@+id/spinner4"
+                    android:layout_marginTop="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/pyetja10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="Number of bathrooms:"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spinner10"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"></Spinner>
+
+
+                <View
+                    android:id="@+id/vija10"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_below="@+id/spinner10"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/pyetja12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="How many nights will the place be avaiable:"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spinner12"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"></Spinner>
+
+
+                <View
+                    android:id="@+id/vija13"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_below="@+id/spinner12"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:color/darker_gray" />
+
 
 
                 <TextView
@@ -393,10 +379,10 @@
 
 
                 <LinearLayout
+                    android:id="@+id/kalendari"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:id="@+id/kalendari"
                     android:layout_marginTop="18dp"
                     android:background="@drawable/bg_calendar">
 
@@ -441,8 +427,6 @@
                     android:layout_marginTop="5dp"></Spinner>
 
 
-
-
                 <View
                     android:id="@+id/vija15"
                     android:layout_width="match_parent"
@@ -464,14 +448,14 @@
                     android:textSize="20dp" />
 
                 <EditText
-                    android:background="@drawable/et_search"
-                    android:textSize="20dp"
-
                     android:id="@+id/description"
                     android:layout_width="match_parent"
+
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/et_search"
+                    android:textSize="20dp" />
 
                 <View
                     android:id="@+id/vija17"
@@ -496,24 +480,14 @@
 
                 <EditText
 
-                    android:background="@drawable/et_search"
                     android:id="@+id/description2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:textColor="#878080"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
-
-
-
-
-
-
-
-
-
-
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/et_search"
+                    android:textColor="#878080"
+                    android:textSize="20dp" />
 
 
                 <View

@@ -91,7 +91,7 @@ public class FragmentHome extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
                 em = dataSnapshot.getValue(ExploreModel.class);
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.isSaved);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.isSaved);
                 fotot_texti.add(ex);
 
 
@@ -133,7 +133,7 @@ public class FragmentHome extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
                 em = dataSnapshot.getValue(ExploreModel.class);
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.isSaved);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.isSaved);
 
                 if (em.getDate().equals(date)) {
                     fotot_texti.add(ex);
@@ -179,7 +179,7 @@ public class FragmentHome extends Fragment {
                 ExploreModel em = new ExploreModel();
                 em = dataSnapshot.getValue(ExploreModel.class);
                 //qeto te dhena fillimisht shtohen ne db
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.getSaved());
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.getSaved());
 
                 if (em.getNoOfGuests().equals(numGuests)) {
                     fotot_texti.add(ex);
@@ -222,7 +222,7 @@ public class FragmentHome extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
                 em = dataSnapshot.getValue(ExploreModel.class);
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.isSaved);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.isSaved);
                 String search_string=search.toLowerCase();
                 //qetu percaktohet ne baze te qka me u bo search psh ktu ekem bo search ne baze te datas,lokacionit,qmimit,emrit
                 if (ex.getDate().toLowerCase().contains(search_string) || ex.getLocation().toLowerCase().contains(search_string) || ex.getName().toLowerCase().contains(search_string) || ex.getCmimi().toLowerCase().contains(search_string)) {

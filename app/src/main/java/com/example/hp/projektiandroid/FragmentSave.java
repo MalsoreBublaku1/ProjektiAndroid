@@ -66,7 +66,7 @@ public class FragmentSave extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
                 em = dataSnapshot.getValue(ExploreModel.class);
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(), em.getSaved());
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.getSaved());
                 if (ex.getSaved()) {
                     fotot_texti.add(ex);
                 }

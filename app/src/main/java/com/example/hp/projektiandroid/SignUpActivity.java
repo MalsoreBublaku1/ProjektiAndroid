@@ -111,11 +111,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             editTextPassword.requestFocus();
             return;
         }
-        // if(conP != password){
-        //   editTextConP.setError("Write again");
-        // editTextConP.requestFocus();
-        //return;
-        // }
+         if(!conP.equals(password)){
+           editTextConP.setError("Write again");
+           editTextConP.requestFocus();
+        return;
+         }
        // progressBar.setVisibility(View.VISIBLE);
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {

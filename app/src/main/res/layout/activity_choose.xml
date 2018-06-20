@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context="com.example.hp.projektiandroid.explore.ChooseActivity">
 
 
@@ -16,17 +17,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
+            <LinearLayout
+                android:orientation="vertical"
+                android:background="@mipmap/fotoja"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp">
             <TextView
-
+                android:layout_margin="10dp"
                 android:id="@+id/fillimi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Which of these sounds most like your place?"
                 android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="30dp"
+               android:textColor="#ffffff"
+                android:textSize="25dp"
                 android:textStyle="bold" />
+            </LinearLayout>
 
             <View
                 android:id="@+id/vija"
@@ -137,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
-                    android:text="How many bedrooms would you like?"
+                    android:text="How many bedrooms do you have?"
                     android:textColor="#000000"
                     android:textSize="20dp" />
 
@@ -386,12 +392,20 @@
                     android:layout_marginTop="18dp"
                     android:background="@drawable/bg_calendar">
 
-                    <CalendarView
-                        android:id="@+id/calendar"
-                        android:layout_width="wrap_content"
-                        android:layout_height="320dp">
+                    <com.squareup.timessquare.CalendarPickerView
+                        android:layout_margin="10dp"
+                        android:id="@+id/calendar_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scrollbarStyle="outsideOverlay"
+                        android:clipToPadding="false"
+                        android:background="#6cc9a3"
+                        app:tsquare_dayTextColor="#82e09e"
+                        android:layout_alignParentTop="true"
+                        />
 
-                    </CalendarView>
+
+
                 </LinearLayout>
 
 
@@ -485,20 +499,35 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/et_search"
                     android:textColor="#878080"
                     android:textSize="20dp" />
 
 
+
                 <View
-                    android:id="@+id/vija11"
+                    android:id="@+id/vija177"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_below="@+id/fillimi"
+                    android:layout_below="@+id/description2"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
                     android:background="@android:color/darker_gray" />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                 <Button
@@ -507,6 +536,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="230dp"
                     android:layout_marginTop="15dp"
+                    android:textColor="#ffffff"
                     android:background="@drawable/rounded_button_solid"
                     android:text="Save" />
 

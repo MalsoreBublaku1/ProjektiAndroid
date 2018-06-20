@@ -44,6 +44,7 @@ dependencies {
 
 
     compile 'com.google.firebase:firebase-auth:12.0.1'
+    compile 'com.squareup:android-times-square:1.6.5@aar'
     compile 'com.google.firebase:firebase-database:12.0.1'
     compile 'com.firebase:firebase-client-android:2.5.2'
     compile 'com.google.android.gms:play-services-auth:12.0.1'

@@ -8,6 +8,14 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:background="#ddd4d4"
+            android:layout_height="1dp">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
@@ -19,12 +27,13 @@
                 android:background="@color/ngjyraHeaderFooter"
                 android:text="Introduction to Homes"
 
-                android:textColor="#afa1a1" />
+                android:textColor="#292a2b" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@drawable/foto0" />
+
+                android:src="@mipmap/foto03" />
 
         </LinearLayout>
 
@@ -37,7 +46,9 @@
       </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
+            android:layout_marginRight="10dp"
             android:id="@+id/homesRecycle"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

@@ -2,6 +2,9 @@ package com.example.hp.projektiandroid.explore;
 
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
+
 //qetu veq merren te dhenat
 public class ExploreModel implements Serializable {
     String noOfBeds;
@@ -16,6 +19,16 @@ public class ExploreModel implements Serializable {
     String noOfBedR;
     String noOfBathR;
     String nights;
+    List <String> lista;
+
+    public List<String> getLista() {
+        return lista;
+    }
+
+    public void setLista(List<String> lista) {
+        this.lista = lista;
+    }
+
 
     public void setName(String name) {
         this.name = name;
@@ -41,7 +54,7 @@ public class ExploreModel implements Serializable {
 
 
     }
-    public ExploreModel(String name, String location, String cmimi ,String noOfBeds, String fotojaURL, String noOfGuests,String date,String tipi,String noOfBedR, String noOfBathR, String nights, Boolean isSaved) {
+    public ExploreModel(String name, String location, String cmimi ,String noOfBeds, String fotojaURL, String noOfGuests,String date,String tipi,String noOfBedR, String noOfBathR, String nights, Boolean isSaved,List<String> lista) {
         this.name = name;
         //this.fotojaUrl=fotojaUrl;
         this.noOfBeds=noOfBeds;
@@ -56,6 +69,7 @@ public class ExploreModel implements Serializable {
         this.noOfBedR = noOfBedR;
         this.noOfBathR = noOfBathR;
         this.nights = nights;
+        this.lista=lista;
     }
 
     public String getDate() {

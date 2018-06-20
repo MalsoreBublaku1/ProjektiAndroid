@@ -3,6 +3,8 @@ package com.example.hp.projektiandroid.explore;
 import android.content.Intent;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 //qekjo bohet per me mundesu me marr ID-ne
 
@@ -21,7 +23,16 @@ public class ExploreModelid implements Serializable{
     String noOfBedR;
     String noOfBathR;
     String nights;
+     List<String> list;
 
+
+    public List<String> getList() {
+        return list;
+    }
+
+    public void setList(List <String>list) {
+        this.list = list;
+    }
 
     public String getId() {
         return id;
@@ -131,7 +142,7 @@ public class ExploreModelid implements Serializable{
         this.nights = nights;
     }
 
-    public ExploreModelid(String id, String noOfBeds, String name, String location, String cmimi, String fotojaURL, String noOfGuests, String date, String tipi, String noOfBedR, String noOfBathR, String nights, Boolean isSaved) {
+    public ExploreModelid(String id, String noOfBeds, String name, String location, String cmimi, String fotojaURL, String noOfGuests, String date, String tipi, String noOfBedR, String noOfBathR, String nights, Boolean isSaved,List<String> list) {
         this.id = id;
         this.noOfBeds = noOfBeds;
         this.name = name;
@@ -145,6 +156,7 @@ public class ExploreModelid implements Serializable{
         this.noOfBedR = noOfBedR;
         this.noOfBathR = noOfBathR;
         this.nights = nights;
+        this.list=list;
     }
 
 

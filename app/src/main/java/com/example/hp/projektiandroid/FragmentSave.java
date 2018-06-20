@@ -50,8 +50,10 @@ public class FragmentSave extends Fragment {
 
         fotot_texti = new ArrayList<>();
         adapter = new ExploreAdapter(c, fotot_texti);
+
         saved_recycle = view.findViewById(R.id.saved_recycle);
         saved_recycle.setLayoutManager(new GridLayoutManager(getContext(), 2));
+
         getDataFirebase();
         return view;
 
@@ -66,8 +68,9 @@ public class FragmentSave extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
                 em = dataSnapshot.getValue(ExploreModel.class);
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.getSaved());
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.getSaved(),em.getLista());
                 if (ex.getSaved()) {
+                    //nese osht bo saved SHTOJE n'fotot_texti
                     fotot_texti.add(ex);
                 }
 

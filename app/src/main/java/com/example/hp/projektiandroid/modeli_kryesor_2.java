@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hp.projektiandroid.explore.ExploreModel;
 import com.example.hp.projektiandroid.explore.ExploreModelid;
@@ -16,10 +17,14 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
+import com.squareup.timessquare.CalendarPickerView;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class modeli_kryesor_2 extends AppCompatActivity {
     TextView tipi;
@@ -37,6 +42,7 @@ public class modeli_kryesor_2 extends AppCompatActivity {
     TextView bedR;
     TextView bathR;
     TextView nights;
+    CalendarPickerView clP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +67,7 @@ public class modeli_kryesor_2 extends AppCompatActivity {
         guests.setText(ft.getNoOfGuests());
         beds=findViewById(R.id.numriBeds);
         beds.setText(ft.getNoOfBeds());
-        clnV=findViewById(R.id.calendar1);
+        //clnV=findViewById(R.id.calendar1);
         bedR = findViewById(R.id.numriBedrooms);
         bedR.setText(ft.getNoOfBedR());
         bathR = findViewById(R.id.nrBathrooms);
@@ -73,22 +79,88 @@ public class modeli_kryesor_2 extends AppCompatActivity {
 
 
 
-        String[] dateArray = konvertoDaten.split("/");
 
-        int day = Integer.parseInt(dateArray[0]);
-        int month = Integer.parseInt(dateArray[1]);
-        int year = Integer.parseInt(dateArray[2]);
 
        //clnV.setDate()
 
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, year);
-        calendar.set(Calendar.MONTH, month);
-        calendar.set(Calendar.DAY_OF_MONTH, day);
 
-        long milliTime = calendar.getTimeInMillis();
-        clnV.setDate (milliTime, true, true);
+
+
+
+
+        clP = (CalendarPickerView) findViewById(R.id.calendar_view);
+//getting current
+        Calendar nextYear = Calendar.getInstance();
+        nextYear.add(Calendar.YEAR, 1);
+        Date today = new Date();
+
+//add one year to calendar from todays date
+        clP.init(today, nextYear.getTime())
+                .inMode(CalendarPickerView.SelectionMode.RANGE);
+
+
+
+//
+
+//
+
+        List<String> lista=ft.getList();
+        List<String>lista2=new ArrayList<>();
+        System.out.println("Te lista");
+        for(int i=0;i<lista.size();i++)
+        {
+
+            System.out.println("Elementet e listes:"+lista.get(i).toString());
+        }
+
+
+
+
+
+
+        //Date date;
+
+        List<String> dateStringList = new ArrayList<String>();//lista
+        List<Date> dateList = new ArrayList<Date>();
+
+        dateStringList.add("2018-06-21");//
+        dateStringList.add("2018-06-22");//
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy");
+
+        for (String dateString : lista) {
+            try {
+                dateList.add(simpleDateFormat.parse(dateString));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        for (Date date : dateList) {
+            System.out.println("Date " + simpleDateFormat.format(date));
+        }
+
+
+
+
+        clP.highlightDates(dateList);
+
+
+        clP.setOnDateSelectedListener(new CalendarPickerView.OnDateSelectedListener() {
+            @Override
+            public void onDateSelected(Date date) {
+                //skena hiq nevoje per Listener
+              //  Toast.makeText(getApplicationContext(),"Selected Date is : " +date.toString(),Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onDateUnselected(Date date) {
+
+               // Toast.makeText(getApplicationContext(),"UnSelected Date is : " +date.toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 

@@ -38,27 +38,38 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.timessquare.CalendarPickerView;
 
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 
 public class ChooseActivity extends AppCompatActivity {
     Spinner spinner, spinner1, spinner2,spinner8,spinner10,spinner12;
     ArrayAdapter<CharSequence> adapter, adapter1, adapter2, adapter3, adapter4, adapter5, adapter6, adapter7,adapterCmimi ,adapter8,adapter10, adapter12;
+    private CalendarPickerView clV;
 
     Button btnNext1;
+
+    //static  String[] names;
      static String description="";
     static String property_type="";
     static String noOfBeds = "";
     static String location = "";
+    static String selekto="";
     static String noOfGuests = "";
     static  String cmimi="";
     static Context c;
+    static List<Date> dates=null;
     static String url = "";
+    static String data1="";
     static String dateis = "";
     static String noOfBedR = "";
     static String noOfBathR = "";
@@ -85,7 +96,8 @@ public class ChooseActivity extends AppCompatActivity {
         final Spinner spinner5;
         final Spinner spinnerCmimi;
         final EditText etDesc;
-
+      //  final CalendarPickerView calendar_view;
+        //final  Button btn_show_dates;
         final CalendarView calendarView;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
@@ -363,16 +375,119 @@ public class ChooseActivity extends AppCompatActivity {
 
         nights = spinner12.getSelectedItem().toString();
         //per me marr daten e selektuar
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+
+
+        //----------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------
+
+
+
+
+        final CalendarPickerView calendar_view = (CalendarPickerView) findViewById(R.id.calendar_view);
+//getting current
+        Calendar nextYear = Calendar.getInstance();
+        nextYear.add(Calendar.YEAR, 1);
+        Date today = new Date();
+
+//add one year to calendar from todays date
+        calendar_view.init(today, nextYear.getTime())
+                .inMode(CalendarPickerView.SelectionMode.RANGE);
+
+
+        calendar_view.setOnDateSelectedListener(new CalendarPickerView.OnDateSelectedListener() {
+            @Override
+            public void onDateSelected(Date date) {
+
+                //Toast.makeText(getApplicationContext(),"Selected Date is : " +date.toString(),Toast.LENGTH_SHORT).show();
+
+            }
 
             @Override
-            public void onSelectedDayChange(CalendarView arg0, int year, int month,
-                                            int date) {
-                int month1=month+1;//se po na qet gjithe 1 muj ma mbrapa
-                dateis = date + "/" + month1 + "/" + year;
-                System.out.println("Data selected is"+dateis);
+            public void onDateUnselected(Date date) {
+
+               // Toast.makeText(getApplicationContext(),"UnSelected Date is : " +date.toString(),Toast.LENGTH_SHORT).show();
             }
         });
+
+
+
+
+//         clV = (CalendarPickerView) findViewById(R.id.calendar_view);
+////getting current
+//        Calendar nextYear = Calendar.getInstance();
+//        nextYear.add(Calendar.YEAR, 1);
+//        Date today = new Date();
+//
+////add one year to calendar from todays date
+//        clV.init(today, nextYear.getTime())
+//                .inMode(CalendarPickerView.SelectionMode.RANGE);
+//
+//        clV.setOnDateSelectedListener(new com.squareup.timessquare.CalendarPickerView.OnDateSelectedListener() {
+//            @Override
+//            public void onDateSelected(Date date) {
+//
+//                selekto=clV.getSelectedDate().toString();
+//                System.out.println("Data selektuar:"+selekto);
+//                etDesc.setText(selekto);
+//            }
+//
+//            @Override
+//            public void onDateUnselected(Date date) {
+//
+//            }
+//        });
+
+       // selekto=clV.getSelectedDate().toString();
+        //System.out.println("Data selektuar jashte:"+selekto);
+
+
+//----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+//     //   List<Date> dates = getDates(date1, date2);
+//        final List<String> dateStringList = new ArrayList<>();
+//
+//        for (Date date : dates) {
+//            String dateStr = String.valueOf(date);
+//            dateStringList.add(dateStr);
+//        }
+//
+//        String[] array = new String[dates.size()];
+//        int index = 0;
+//        for (Object value : dates) {
+//            array[index] = (String)value;
+//            index++;
+//        }
+//
+//        final List nameList1 = new ArrayList<String>(Arrays.asList(array));
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        final String[] names = {"OK"};
+        final List nameList = new ArrayList<String>(Arrays.asList(names));
 
 //ketu shtohetn te dhenat ne databaze
         System.out.println("No of Beds ne 1 " + noOfBeds);
@@ -384,8 +499,29 @@ public class ChooseActivity extends AppCompatActivity {
 
                 System.out.println("DATE IS" + dateis);//check the date
                 //per me i rujt te dhenat e modelit ne databaze edhe me i shfaq ne explore_item
+                List <Date>listA;
+                listA=calendar_view.getSelectedDates();
 
-                ExploreModel em = new ExploreModel(description, location, cmimi, noOfBeds + " beds", url, noOfGuests, dateis,property_type,noOfBedR,noOfBathR, nights,false);
+
+                for(int i=0;i<listA.size();i++)
+                {
+                    System.out.println("Ne buton="+listA.get(i).toString());
+                }
+
+                final List<String> dateStringList = new ArrayList<>();
+//
+
+//
+                for (Date date : listA) {
+                String dateStr = String.valueOf(date);
+                  dateStringList.add(dateStr);
+             }
+
+
+
+
+
+                ExploreModel em = new ExploreModel(description, location, cmimi, noOfBeds + " beds", url, noOfGuests, dateis,property_type,noOfBedR,noOfBathR, nights,false,dateStringList);
                 //System.out.println("No of beds:" + noOfBeds);
                 ShtoTeDhenat(em);
                 Intent i=new Intent("kryesore-filter");
@@ -507,4 +643,6 @@ public class ChooseActivity extends AppCompatActivity {
 
 
     }
+
+
 }

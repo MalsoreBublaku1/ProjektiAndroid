@@ -185,8 +185,18 @@ public class FragmentExplore extends Fragment {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 int month1 = month + 1;
-                dateis = dayOfMonth + "/" + month1 + "/" + year;
+                String f="";
+//bone gjithe me mujin qershor
+                if(month1==6) {
+                f="Jun";
+                }
+                dateis = dayOfMonth + "/" + f + "/" + year;
+
+
+
+
                 System.out.println("Te dialogu data" + dateis);
+
             }
         });
 

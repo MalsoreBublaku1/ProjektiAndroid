@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:id="@+id/scrollView"
         android:background="@android:color/white"
-        android:layout_height="500dp">
+        android:layout_height="490dp">
 
        <RelativeLayout
            android:layout_width="match_parent"
@@ -255,7 +255,9 @@
                android:layout_below="@id/relativeH"
                android:layout_width="match_parent"
                android:background="@drawable/bg_calendar"
-               android:layout_height="380dp"
+               android:layout_height="420dp"
+               android:id="@+id/relCal"
+
                android:layout_margin="4dp"
                >
 
@@ -304,27 +306,68 @@
                <LinearLayout
 
                    android:layout_centerHorizontal="true"
+                   android:id="@+id/kalendari4"
                    android:layout_below="@id/tvAv"
                    android:layout_width="300dp"
                    android:background="@drawable/bg_calendar"
-                   android:layout_marginTop="40dp"
+                   android:layout_margin="10dp"
                    android:layout_gravity="center"
-                   android:layout_height="wrap_content">
+                   android:layout_height="360dp">
 
-                   <CalendarView
-                       android:id="@+id/calendar1"
-                       android:layout_width="wrap_content"
-                       android:layout_height="320dp">
+                   <com.squareup.timessquare.CalendarPickerView
+                       android:layout_width="match_parent"
+                       android:layout_margin="10dp"
+                       android:layout_height="270dp"
+                       android:layout_below="@id/vija200"
+
+                       android:id="@+id/calendar_view">
 
 
-                   </CalendarView>
+                   </com.squareup.timessquare.CalendarPickerView>
 
                </LinearLayout>
 
 
+
+
+
+
+
+
            </RelativeLayout>
 
+           <LinearLayout
+               android:orientation="vertical"
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:id="@+id/vija200"
+               android:background="@color/teksti"
+               android:layout_below="@id/relCal"></LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        </RelativeLayout>
+
+
+
 
 
 

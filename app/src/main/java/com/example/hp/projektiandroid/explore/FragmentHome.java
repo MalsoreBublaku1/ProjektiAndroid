@@ -23,8 +23,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-
+import java.util.Date;
+import java.util.List;
 
 
 public class FragmentHome extends Fragment {
@@ -64,6 +67,7 @@ public class FragmentHome extends Fragment {
             if (!guests.equals("0")) {
                 getDataFirebaseGuests(guests);//merre numrin e guests
             } else if (!data.equals("nodata")) {
+                System.out.println("date ne fragmentHome "+data);
                 getDataFirebaseDates(data);
             } else if (!search.equals("nosearch")) {
                 //System.out.println("U thirr search");
@@ -75,7 +79,7 @@ public class FragmentHome extends Fragment {
 
         } else {
             System.out.println("Nuk eshte thirrur search");
-            getDataFirebase();
+            getDataFirebase();//i qet pa filtrime
         }
 
 
@@ -91,8 +95,8 @@ public class FragmentHome extends Fragment {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
-                em = dataSnapshot.getValue(ExploreModel.class);
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.isSaved);
+                em =dataSnapshot.getValue(ExploreModel.class);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.isSaved,em.getLista());
                 fotot_texti.add(ex);
 
 
@@ -134,12 +138,68 @@ public class FragmentHome extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
                 em = dataSnapshot.getValue(ExploreModel.class);
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.isSaved);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.isSaved,em.getLista());
 
-                if (em.getDate().equals(date)) {
+
+                List<String>lista=em.getLista();
+                List<String>lista1=new ArrayList<>();
+
+               for(int i=0;i<lista.size();i++)
+               {
+                   SimpleDateFormat dateFormat = new SimpleDateFormat("EEE MMM d HH:mm:ss zzz yyyy");
+
+                   Date convertedDate = new Date();
+                   try {
+                       convertedDate = dateFormat.parse(lista.get(i));
+                       SimpleDateFormat sdfnewformat = new SimpleDateFormat("dd/MMM/yyyy");
+                       String finalDateString = sdfnewformat.format(convertedDate);
+                       lista1.add(finalDateString);
+                   } catch (ParseException e) {
+                       e.printStackTrace();
+                   }
+
+
+                  // System.out.println("Elementet e listes:"+lista.get(i));
+                   System.out.println("Elementet e lists 1 jane:"+lista1.get(i));
+
+               }
+                System.out.println("Madhesia:"+lista1.size());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                if(lista1.contains(date))
+                {
+                    System.out.println("PO E PERMBAN");
                     fotot_texti.add(ex);
                 }
                 binding.homesRecycle.setAdapter(adapter);
+
+
+
+
 
 
             }
@@ -181,7 +241,7 @@ public class FragmentHome extends Fragment {
                 //i marrim qeto t dhena prej explore modelit
                 em = dataSnapshot.getValue(ExploreModel.class);
                 //qeto te dhena fillimisht shtohen ne db
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.getSaved());
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.getName(), em.getLocation(), em.getCmimi(), em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.getSaved(),em.getLista());
 
                 if (em.getNoOfGuests().equals(numGuests)) {
                     fotot_texti.add(ex);
@@ -226,7 +286,7 @@ public class FragmentHome extends Fragment {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 ExploreModel em = new ExploreModel();
                 em = dataSnapshot.getValue(ExploreModel.class);
-                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.isSaved);
+                ExploreModelid ex = new ExploreModelid(dataSnapshot.getKey(), em.getNoOfBeds(), em.name, em.getLocation(), em.cmimi, em.getFotojaURL(), em.getNoOfGuests(), em.getDate(), em.getTipi(),em.getNoOfBedR(), em.getNoOfBathR(), em.getNights(), em.isSaved,em.getLista());
                 String search_string=search.toLowerCase();
                 //qetu percaktohet ne baze te qka me u bo search psh ktu ekem bo search ne baze te datas,lokacionit,qmimit,emrit
                 if (ex.getDate().toLowerCase().contains(search_string) || ex.getLocation().toLowerCase().contains(search_string) || ex.getName().toLowerCase().contains(search_string) || ex.getCmimi().toLowerCase().contains(search_string)) {

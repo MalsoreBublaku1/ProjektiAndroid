@@ -103,7 +103,12 @@ public class    MainActivity extends AppCompatActivity implements View.OnClickLi
             }
         });*/
         TV1=(TextView)findViewById(R.id.tvFP);
-        TV1.setOnClickListener(MainActivity.this);
+        TV1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,SendEmailActivity.class));
+            }
+        });
         TV3=(TextView) findViewById(R.id.tvSignUp);
         TV3.setOnClickListener(new View.OnClickListener() {
             @Override

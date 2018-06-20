@@ -33,12 +33,12 @@
         android:textSize="20dp"
         />
 <Button
-    android:paddingTop="14dp"
+
     android:textSize="14dp"
     android:layout_marginTop="10dp"
     android:id="@+id/buton2"
     android:layout_width="match_parent"
-    android:textColor="@color/bardhe"
+    android:textColor="#ffffff"
     android:background="@drawable/rounded_button_solid"
     android:layout_height="wrap_content"
     android:text="Reset"/>

@@ -41,7 +41,7 @@ public class SendEmailActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(SendEmailActivity.this,"Password reset email sent!",Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(SendEmailActivity.this,"Password reset email sent!",Toast.LENGTH_SHORT).show();
                                 finish();
                                 startActivity(new Intent(SendEmailActivity.this,MainActivity.class));
                             }

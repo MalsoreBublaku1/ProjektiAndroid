@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:id="@+id/scrollView"
         android:background="@android:color/white"
-        android:layout_height="490dp">
+        android:layout_height="510dp">
 
        <RelativeLayout
            android:layout_width="match_parent"
 
-           android:background="@color/ngjyraHeaderFooter"
+           android:background="#ffffff"
            android:layout_height="match_parent">
 
            <RelativeLayout
@@ -263,13 +263,15 @@
 
 
                <TextView
-                   android:layout_marginTop="5dp"
-                   android:layout_marginLeft="10dp"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:textColor="#1c1a1a"
                    android:id="@+id/nightMin"
-                   android:textSize="20dp"/>
+                   android:layout_marginLeft="15dp"
+                   android:layout_width="match_parent"
+                   android:layout_height="300dp"
+                   android:layout_alignBaseline="@+id/nightMinText"
+                   android:layout_alignBottom="@+id/nightMinText"
+                   android:layout_alignParentEnd="true"
+                   android:textColor="#1c1a1a"
+                   android:textSize="20dp" />
 
                <TextView
 
@@ -279,7 +281,8 @@
                    android:layout_marginTop="5dp"
                    android:id="@+id/nightMinText"
                    android:textColor="#1c1a1a"
-                   android:layout_marginLeft="30dp"
+                   android:layout_marginLeft="40dp"
+
                    android:textSize="20dp"
                    />
 
@@ -393,9 +396,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_marginTop="-10dp"
+        android:layout_height="200dp"
         android:layout_below="@id/scrollView"
-        android:background="@color/ngjyraHeaderFooter"
+        android:background="#ffffff"
         >
 
         <LinearLayout
@@ -408,7 +412,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="15dp"
             android:text="10$"
             android:textColor="#1c1a1a"
             android:textSize="20dp"
@@ -417,7 +421,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_marginLeft="7dp"
+            android:layout_marginLeft="14dp"
             android:layout_height="wrap_content"
             android:text=" per night"
             android:textColor="#1c1a1a"
@@ -435,9 +439,10 @@
             android:id="@+id/save"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:background="#842a17"
             android:text="Save"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="40dp"
            android:layout_alignParentRight="true"
             android:textColor="@android:color/white" />
 

@@ -14,4 +14,10 @@
     <color name="ngjyra7">#4f4c4c</color>
     <color name="ngjyraHeaderFooter">#fcfcfc</color>
     <color name="teksti">#3a3838</color>
+    <color name="calendar_highlighted_day_bg">#c2edd2</color>
+    <color name="calendar_selected_day_bg">#5b8476</color>
+    <color name="calendar_selected_range_bg">#0c9b69</color>
+    <color name="calendar_divider">#60a58d</color>
+    <color name="calendar_active_month_bg">#fff5f7f9</color>
+    <color name="calendar_bg">#ffffffff</color>
 </resources>
